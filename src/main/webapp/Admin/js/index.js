@@ -18,15 +18,24 @@ layui.config({
         });
     }).resize();
 
-    if (rank == 0) {
+    if (rank == 3) {
         //设置最高权限
         navbar.set({
             spreadOne: true,
             elem: '#admin-navbar-side',
             cached: true,
-            data: navs
+            data: navs3
         });
     } else
+    if (rank == 2) {
+        //设置最高权限
+        navbar.set({
+            spreadOne: true,
+            elem: '#admin-navbar-side',
+            cached: true,
+            data: navs2
+        });
+    }else
     if (rank == 1) {
         //设置最高权限
         navbar.set({

@@ -33,6 +33,7 @@
 <%
     List list = (List) session.getAttribute("info");
 
+
     if (list == null) {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
     } else {
@@ -42,6 +43,27 @@
 <script type="text/javascript">
     //        权限设置
     var rank = 0;
+    <%
+    if (session.getAttribute("identity") == "student") {
+        StudentBean studentBean = (StudentBean) list.get(0);
+
+    %>
+    rank = <%=studentBean.getS_rank()%>
+
+    <%
+    }  else if (session.getAttribute("identity") == "teacher") {
+        TeacherBean teacherBean = (TeacherBean) list.get(0);
+    %>
+        rank = <%=teacherBean.getT_rank()%>
+            alert(rank)
+    <%
+        } else if (session.getAttribute("identity") == "admin") {
+           AdminBean adminBean=(AdminBean) list.get(0);
+     %>
+            rank = <%=adminBean.getA_trank()%>
+    <%
+    }
+    %>
     <%--aa = <%studentBean.getS_rank();%>--%>
 
     <%--alert(aa);--%>
@@ -99,6 +121,7 @@
                                 StudentBean studentBean = (StudentBean) list.get(0);
                         %>
                         <span><%=studentBean.getS_username()%></span>
+                        <span><%=studentBean.getS_rank()%></span>
 
                         <%
                         } else if (session.getAttribute("identity") == "teacher") {

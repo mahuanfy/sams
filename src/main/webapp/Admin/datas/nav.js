@@ -1,6 +1,6 @@
 
 
-var navs = [{
+var navs3 = [{
 	"title": "学生信息",
 	"icon": "fa fa-mortar-board ",
 	"spread": false,
