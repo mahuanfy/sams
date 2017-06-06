@@ -25,7 +25,7 @@ var navs = [{
 	"children": [{
 		"title": "学生成绩信息",
 		"icon": "fa-check-square-o",
-		"href": "weiwancheng.html"
+		"href": "Sscore.jsp"
 	}]
 }, {
 	"title": "课程详情",

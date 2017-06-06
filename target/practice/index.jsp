@@ -24,9 +24,9 @@
                     <li>学生信息管理系统，提供一个信息更新快捷、管理方便、功能设置合理的学生信息管理</li>
                 </ul>
                 <%--<div>--%>
-                    <%--<a href="http://39.108.72.222:8080/eu/" class="btn btn-primary btn-outline">--%>
-                        <%--返回前端页面</a>--%>
-                    <%--<a href="#" class="btn btn-primary btn-outline margin-left-5">联系我们</a>--%>
+                <%--<a href="http://39.108.72.222:8080/eu/" class="btn btn-primary btn-outline">--%>
+                <%--返回前端页面</a>--%>
+                <%--<a href="#" class="btn btn-primary btn-outline margin-left-5">联系我们</a>--%>
                 <%--</div>--%>
             </div>
         </div>
@@ -53,7 +53,7 @@
                         </div>
                         <%
                             String err= (String) request.getAttribute("err");
-                          if(err !=null){
+                            if(err !=null){
                         %>
                         <span style="color: red"><%=err%></span>
                         <%
@@ -95,7 +95,7 @@
                 <div class="vertical-align-middle">
                     <h1 class="hidden-xs">老师登录页面</h1>
                     <p class="hidden-xs">学生成绩管理后台系统</p>
-                    <form action="${pageContext.request.contextPath}/UserAction?method=tlogin"
+                    <form action="${pageContext.request.contextPath}/UserServlet?method=tlogin"
                           class="login-form fv-form fv-form-bootstrap" method="post" id="loginForm1"
                           novalidate="novalidate">
                         <button type="submit" class="fv-hidden-submit"
@@ -110,6 +110,14 @@
                                    data-fv-result="NOT_VALIDATED" style="display: none;">用户名不能为空
                             </small>
                         </div>
+                        <%
+                            String err1= (String) request.getAttribute("err");
+                            if(err !=null){
+                        %>
+                        <span style="color: red"><%=err1%></span>
+                        <%
+                            }
+                        %>
                         <div class="form-group has-feedback">
                             <label class="sr-only" for="password">密码</label>
                             <input type="password" class="form-control" id="password1" name="password"
@@ -156,17 +164,17 @@
         }
     );
 
-//    //取消键盘回车事件
-//    $(function () {
-//        $("*").each(function () {
-//            $(this).keypress(function (e) {
-//                var key = window.event ? e.keyCode : e.which;
-//                if (key.toString() == "13") {
-//                    return false;
-//                }
-//            });
-//        });
-//    });
+    //    //取消键盘回车事件
+    //    $(function () {
+    //        $("*").each(function () {
+    //            $(this).keypress(function (e) {
+    //                var key = window.event ? e.keyCode : e.which;
+    //                if (key.toString() == "13") {
+    //                    return false;
+    //                }
+    //            });
+    //        });
+    //    });
     //切换老师登录和学生登录
     $("#register_login").hide();
     $(document).ready(function () {
@@ -178,24 +186,24 @@
             $("#register_login").hide();
             $("#login").fadeIn("slow");
         });
-<%--//验证用户是否存在--%>
+        <%--//验证用户是否存在--%>
         <%--$("input[name='register_username'] ").change(function () {--%>
-            <%--var name = $(this).val();--%>
-<%--//            name = $.trim(name);//取出前后空格--%>
-            <%--if (name != "") {--%>
-                <%--$.post("${pageContext.request.contextPath}/UserAction?method=check",--%>
-                    <%--{"username": name, "time": new Date()},--%>
-                    <%--function (data, status) {--%>
+        <%--var name = $(this).val();--%>
+        <%--//            name = $.trim(name);//取出前后空格--%>
+        <%--if (name != "") {--%>
+        <%--$.post("${pageContext.request.contextPath}/UserAction?method=check",--%>
+        <%--{"username": name, "time": new Date()},--%>
+        <%--function (data, status) {--%>
 
-                        <%--if (data == 1) {--%>
-                            <%--$("#username1_verify2").show();--%>
-                        <%--} else {--%>
-                            <%--$("#username1_verify2").hide();--%>
-                        <%--}--%>
+        <%--if (data == 1) {--%>
+        <%--$("#username1_verify2").show();--%>
+        <%--} else {--%>
+        <%--$("#username1_verify2").hide();--%>
+        <%--}--%>
 
-                    <%--}--%>
-                <%--);--%>
-            <%--}--%>
+        <%--}--%>
+        <%--);--%>
+        <%--}--%>
         <%--});--%>
     });
 </script>

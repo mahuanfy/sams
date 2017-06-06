@@ -23,10 +23,18 @@ public class UserService  implements IUserSerivce{
     }
 
     public List<TeacherBean> Tlogin(TeacherBean teacherBean) {
-        return null;
+        try{
+            return userDao.Tlogin(teacherBean);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     public List<AdminBean> Alogin(AdminBean adminBean) {
-        return null;
+        try{
+            return userDao.Alogin(adminBean);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,6 +1,8 @@
 <%@ page import="net.sf.json.JSONArray" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.eu.sams.entity.StudentBean" %>
+<%@ page import="com.eu.sams.entity.TeacherBean" %>
+<%@ page import="com.eu.sams.entity.AdminBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 
@@ -29,12 +31,13 @@
 
 <body>
 <%
-    List list = (List ) session.getAttribute("info");
+    List list = (List) session.getAttribute("info");
 
     if (list == null) {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
     } else {
-        StudentBean studentBean = (StudentBean) list.get(0);
+
+
 %>
 <script type="text/javascript">
     //        权限设置
@@ -43,9 +46,9 @@
 
     <%--alert(aa);--%>
     <%--$.post("${pageContext.request.contextPath}/UserAction?method=rank",--%>
-        <%--function (data, status) {--%>
-            <%--rank = data;--%>
-        <%--}--%>
+    <%--function (data, status) {--%>
+    <%--rank = data;--%>
+    <%--}--%>
     <%--)--%>
     //        //自带
     //        layui.use('layer', function () {
@@ -91,7 +94,26 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="admin-header-user">
                         <img src="images/0.jpg"/>
+                        <%
+                            if (session.getAttribute("identity") == "student") {
+                                StudentBean studentBean = (StudentBean) list.get(0);
+                        %>
                         <span><%=studentBean.getS_username()%></span>
+
+                        <%
+                        } else if (session.getAttribute("identity") == "teacher") {
+                            TeacherBean teacherBean = (TeacherBean) list.get(0);
+                        %>
+                        <span><%=teacherBean.getT_username()%></span>
+
+                        <%
+                        } else if (session.getAttribute("identity") == "admin") {
+                            AdminBean adminBean=(AdminBean) list.get(0);
+                        %>
+                        <span><%=adminBean.getA_username() %></span>
+                        <%
+                            }
+                        %>
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
