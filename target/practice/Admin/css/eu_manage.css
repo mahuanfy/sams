@@ -1,0 +1,18 @@
+.site-demo-button div{
+    margin: 5px 5px 10px;
+}
+.layui-form-label{
+    width: 90px;
+}
+.huan_a{
+    height: 20px;
+}
+.huan_center{
+    text-align:center;
+}
+element.style{
+    height: 500px;
+}
+.layui-input-block{
+    margin-left: 0;
+}
