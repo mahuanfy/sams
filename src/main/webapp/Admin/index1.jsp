@@ -55,7 +55,7 @@
         TeacherBean teacherBean = (TeacherBean) list.get(0);
     %>
         rank = <%=teacherBean.getT_rank()%>
-            alert(rank)
+
     <%
         } else if (session.getAttribute("identity") == "admin") {
            AdminBean adminBean=(AdminBean) list.get(0);
@@ -121,7 +121,7 @@
                                 StudentBean studentBean = (StudentBean) list.get(0);
                         %>
                         <span><%=studentBean.getS_username()%></span>
-                        <span><%=studentBean.getS_rank()%></span>
+
 
                         <%
                         } else if (session.getAttribute("identity") == "teacher") {

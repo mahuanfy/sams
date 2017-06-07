@@ -52,7 +52,7 @@ public class UserServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/Admin/index1.jsp");
         } else {
             req.setAttribute("err","用户名或密码有误，请重新登录");
-            req.getRequestDispatcher(req.getContextPath() + "/index.jsp").forward(req,resp);
+            req.getRequestDispatcher("/index.jsp").forward(req,resp);
         }
     }
     protected void tlogin(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
@@ -66,7 +66,7 @@ public class UserServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath()+"/Admin/index1.jsp");
         }else {
             req.setAttribute("err","用户名或密码错误，请重新登录");
-            req.getRequestDispatcher(req.getContextPath()+"/index.jsp").forward(req,resp);
+            req.getRequestDispatcher("/index.jsp").forward(req,resp);
         }
     }
     protected void alogin(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
