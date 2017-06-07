@@ -6,51 +6,83 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page isELIgnored="false"%>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>Table</title>
-    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all"/>
     <link rel="stylesheet" href="css/global.css" media="all">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/table.css" />
-    <script type="text/javascript"  src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/table.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <script type="text/javascript">
-    $(function () {
+
+    $(document).ready(function () {
+
         $.post("${pageContext.request.contextPath}/StudentServlet?method=score ",
-            function (data,status) {
+            function (data, status) {
                 $("#Student_currise").html("");
-                for(var i =0;i<data.length;i++){
-                    $("#Student_currise").append(" <tr ><td><input type='checkbox'></td>"+
-                    "<th>"+ (i + 1) +"</th>"+
-                    "<th>"+data[i]['sc_studentid']+"</th>"+
-                    "<th>"+data[i]['sc_name']+"</th>"+
-                    "<th>"+data[i]['sc_class1']+"</th>"+
-                    "<th>"+data[i]['sc_class2']+"</th>"+
-                    "<th>"+data[i]['sc_class3']+"</th>"+
-                    "<th>"+data[i]['sc_class4']+"</th>"+
-                    "<th>"+data[i]['sc_class5']+"</th>"+
-                    "<th>"+data[i]['sc_class6']+"</th>"+
-                    "<th>"+data[i]['sc_class7']+"</th>"+
-                    "<th>"+data[i]['sc_class8']+"</th>"+
-                    "<th>"+data[i]['sc_class9']+"</th>"+
-                    "<th>"+data[i]['sc_class10']+"</th>"+
-                    "<td>"+
-                    "<a href='${pageContext.request.contextPath}/StudentServlet?method= sc_idscore&sc_id="+ data[i]['sc_id'] +" ' class='layui-btn layui-btn-mini' onclick='student_compile(data[1]['sc_id'])'>编辑</a>&nbsp;&nbsp;"+
-                    "<a href='javascript:;' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</a> </td></tr>");
+                for (var i = 0; i < data.length; i++) {
+                    $("#Student_currise").append(" <tr ><td><input type='checkbox'></td>" +
+                        "<th>" + (i + 1) + "</th>" +
+                        "<th>" + data[i]['sc_studentid'] + "</th>" +
+                        "<th>" + data[i]['sc_name'] + "</th>" +
+                        "<th>" + data[i]['sc_class1'] + "</th>" +
+                        "<th>" + data[i]['sc_class2'] + "</th>" +
+                        "<th>" + data[i]['sc_class3'] + "</th>" +
+                        "<th>" + data[i]['sc_class4'] + "</th>" +
+                        "<th>" + data[i]['sc_class5'] + "</th>" +
+                        "<th>" + data[i]['sc_class6'] + "</th>" +
+                        "<th>" + data[i]['sc_class7'] + "</th>" +
+                        "<th>" + data[i]['sc_class8'] + "</th>" +
+                        "<th>" + data[i]['sc_class9'] + "</th>" +
+                        "<th>" + data[i]['sc_class10'] + "</th>" +//onclick='student_compile(" + data[i]['sc_id'] + ")'
+                        "<td>" +
+                        "<button class='layui-btn layui-btn-mini' onclick='student_compile(" + data[i]['sc_id'] + ")'>编辑</button>&nbsp;&nbsp;" +
+                        "<button href='javascript:;' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</button> </td></tr>");
                 }
             },
             "json"
         );
 
-//        function student_compile(sc_studentid) {
-//            alert(sc_studentid);
-//        }
+//按照id查找
+
     });
+    function student_compile(sc_id) {
+        $.post("${pageContext.request.contextPath}/StudentServlet?method=sc_idscore&sc_id="+sc_id,
+            function (data, status) {
+                $("input[name='sc_studentid']").val(data[0]["sc_studentid"]);
+                $("input[name='sc_name']").val(data[0]["sc_name"]);
+                $("input[name='sc_class1']").val(data[0]["sc_class1"]);
+                $("input[name='sc_class2']").val(data[0]["sc_class2"]);
+                $("input[name='sc_class3']").val(data[0]["sc_class3"]);
+                $("input[name='sc_class4']").val(data[0]["sc_class4"]);
+                $("input[name='sc_class5']").val(data[0]["sc_class5"]);
+                $("input[name='sc_class6']").val(data[0]["sc_class6"]);
+                $("input[name='sc_class7']").val(data[0]["sc_class7"]);
+                $("input[name='sc_class8']").val(data[0]["sc_class8"]);
+                $("input[name='sc_class9']").val(data[0]["sc_class9"]);
+                $("input[name='sc_class10']").val(data[0]["sc_class10"]);
+            },
+            "json"
+        );
+
+            layer.open({
+                type: 1,
+                title: '学生信息更改',
+                area: ['1050px', '500px'],
+                skin: 'yourclass',
+                content: $('#student_div'),
+            });
+
+    }
+
+    //添加数据弹出框
+
 </script>
 <body>
 <div class="admin-main">
@@ -60,13 +92,13 @@
             <i class="layui-icon">&#xe608;</i> 修改学生成绩
         </a>
         <%--<a href="#" class="layui-btn layui-btn-small" id="import">--%>
-            <%--<i class="layui-icon">&#xe608;</i> 导入信息--%>
+        <%--<i class="layui-icon">&#xe608;</i> 导入信息--%>
         <%--</a>--%>
         <%--<a href="#" class="layui-btn layui-btn-small">--%>
-            <%--<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息--%>
+        <%--<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息--%>
         <%--</a>--%>
         <%--<a href="javascript:;" class="layui-btn layui-btn-small" id="search">--%>
-            <%--<i class="layui-icon">&#xe615;</i> 搜索--%>
+        <%--<i class="layui-icon">&#xe615;</i> 搜索--%>
         <%--</a>--%>
     </blockquote>
     <fieldset class="layui-elem-field">
@@ -94,25 +126,25 @@
                 </thead>
                 <tbody id="Student_currise">
 
-                    <%--<td><input type="checkbox"></td>--%>
-                    <%--<th>编号</th>--%>
-                    <%--<th>学号</th>--%>
-                    <%--<th>姓名</th>--%>
-                    <%--<th>web技术开发(java)</th>--%>
-                    <%--<th>计算机组成原理</th>--%>
-                    <%--<th>软件工程</th>--%>
-                    <%--<th>大学英语</th>--%>
-                    <%--<th>网站设计</th>--%>
-                    <%--<th>工科数学</th>--%>
-                    <%--<th>C语言程序设计</th>--%>
-                    <%--<th>php程序设计</th>--%>
-                    <%--<th>orcal数据库</th>--%>
-                    <%--<th>html5入门</th>--%>
-                    <%--<td>--%>
-                        <%--<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>--%>
-                        <%--<a href="/manage/article_edit_1" class="layui-btn layui-btn-mini">编辑</a>--%>
-                        <%--<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>--%>
-                    <%--</td>--%>
+                <%--<td><input type="checkbox"></td>--%>
+                <%--<th>编号</th>--%>
+                <%--<th>学号</th>--%>
+                <%--<th>姓名</th>--%>
+                <%--<th>web技术开发(java)</th>--%>
+                <%--<th>计算机组成原理</th>--%>
+                <%--<th>软件工程</th>--%>
+                <%--<th>大学英语</th>--%>
+                <%--<th>网站设计</th>--%>
+                <%--<th>工科数学</th>--%>
+                <%--<th>C语言程序设计</th>--%>
+                <%--<th>php程序设计</th>--%>
+                <%--<th>orcal数据库</th>--%>
+                <%--<th>html5入门</th>--%>
+                <%--<td>--%>
+                <%--<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>--%>
+                <%--<a href="/manage/article_edit_1" class="layui-btn layui-btn-mini">编辑</a>--%>
+                <%--<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>--%>
+                <%--</td>--%>
 
                 </tbody>
             </table>
@@ -130,7 +162,7 @@
         base: 'plugins/layui/modules/'
     });
 
-    layui.use(['icheck', 'laypage','layer'], function() {
+    layui.use(['icheck', 'laypage', 'layer'], function () {
         var $ = layui.jquery,
             laypage = layui.laypage,
             layer = parent.layer === undefined ? layui.layer : parent.layer;
@@ -145,19 +177,15 @@
             ,
             groups: 5 //连续显示分页数
             ,
-            jump: function(obj, first) {
+            jump: function (obj, first) {
                 //得到了当前页，用于向服务端请求对应数据
                 var curr = obj.curr;
-                if(!first) {
+                if (!first) {
                     //layer.msg('第 '+ obj.curr +' 页');
                 }
             }
         });
 //编辑页面
-
-
-
-
 
 
 //        $('.site-table tbody tr').on('click', function(event) {
@@ -205,5 +233,128 @@
     });
 </script>
 </body>
+<div id="student_div" style="display: none">
+    <form class="layui-form" action="${pageContext.request.contextPath}/StudentServlet?method=saveById" method="post">
+        <div style="width: 20px;"></div>
+        <div class="huan_a"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-inline">
+                <input readonly="readonly" style="background:#F6F6F6"   name="sc_studentid"  autocomplete="off" class="layui-input">
+            </div>
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-inline">
+                <input readonly="readonly" style="background:#F6F6F6"   name="sc_name"  autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">web技术开发(java)</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class1" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
 
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">计算机组成原理</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class2" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">软件工程</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class3" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">大学英语</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class4" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+                <label class="layui-form-label">网站设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class5" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">工科数学</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class6" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">C语言程序设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class7" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">php程序设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class8" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">orcal数据库</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class9" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">html5入门</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class10" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+            <div style="width: 20px;"></div>
+            <div class="layui-input-block huan_center">
+                <button id="button_aaa" class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+    </form>
+</div>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function() {
+        var form = layui.form(),
+            layer = layui.layer,
+            layedit = layui.layedit,
+            laydate = layui.laydate;
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+        //自定义验证规则
+        form.verify({
+            title: function(value) {
+                if(value.length < 5) {
+                    return '标题至少得5个字符啊';
+                }
+            },
+            pass: [/(.+){6,12}$/, '密码必须6到12位'],
+            content: function(valu0e) {
+                layedit.sync(editIndex);
+            }
+        });
+
+        //监听提交
+        form.on('submit(demo1)', function(data) {
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+    });
+</script>
 </html>

@@ -21,4 +21,13 @@ public interface IStudentService {
      *根据学生学号查询成绩
      */
     List<ScoreBean> idscore(String s_studentid);
+
+    /**
+     * 根据id查找学生成绩信息
+     */
+    List<ScoreBean> idFindscore(int sc_id);
+    /**
+     * 根据学生学号保存学生数据
+     */
+    void saveById(ScoreBean scoreBean);
 }

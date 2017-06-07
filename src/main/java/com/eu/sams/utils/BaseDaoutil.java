@@ -42,7 +42,7 @@ public class BaseDaoutil {
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            ConnUtil.close(null, pstmt, conn);
+            ConnUtil.close(rs, pstmt, conn);
 
         }
     }
@@ -82,7 +82,7 @@ public class BaseDaoutil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            ConnUtil.close(null, pstmt, conn);
+            ConnUtil.close(rs, pstmt, conn);
 
         }
         return null;

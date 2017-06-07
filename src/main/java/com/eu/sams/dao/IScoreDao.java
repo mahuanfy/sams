@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Created by 马欢欢 on 2017/6/6.
  */
-public interface IStudentDao {
+public interface IScoreDao {
     /**
      * 查找学生成绩
      */
@@ -21,4 +21,13 @@ public interface IStudentDao {
      * 根据学号查找学生成绩
      * */
     List<ScoreBean> idscore(String s_studentid);
+    /**
+     * 根据id查找学生成绩信息
+     */
+    List<ScoreBean> idFindscore(int sc_id);
+
+    /**
+     * 根据学生学号保存学生数据
+     */
+    void saveById(ScoreBean scoreBean);
 }
