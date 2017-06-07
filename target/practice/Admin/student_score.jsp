@@ -20,14 +20,10 @@
 <body>
 <script type="text/javascript">
     $(function () {
-
         $.post("${pageContext.request.contextPath}/StudentServlet?method=idscore",
             function (data,status) {
-                alert(111);
-
                 $("#Studentid_currise").html("");
                 for(var i=0;i<data.length;i++){
-                    alert(data[i]['sc_name']);
                     $("#Studentid_currise").append(" <tr> <th><input type='checkbox' ></th>"+
                         "<th>"+ (i + 1) +"</th>"+
                         "<th>"+data[i]['sc_studentid']+"</th>"+
