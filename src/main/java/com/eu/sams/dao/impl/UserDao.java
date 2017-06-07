@@ -32,4 +32,6 @@ public class UserDao extends BaseDaoutil  implements IUserDao{
         List<AdminBean> alist=super.query(sql,adm,AdminBean.class) ;
         return(alist!=null&&alist.size()>0?alist:null);
     }
+
+
 }

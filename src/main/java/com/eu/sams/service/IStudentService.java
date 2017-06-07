@@ -17,4 +17,8 @@ public interface IStudentService {
      * 查找学生信息
      */
     List <StudentBean> studentInfo();
+    /**
+     *根据学生学号查询成绩
+     */
+    List<ScoreBean> idscore(String s_studentid);
 }

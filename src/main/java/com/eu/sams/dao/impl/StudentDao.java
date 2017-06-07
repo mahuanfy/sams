@@ -20,4 +20,11 @@ public class StudentDao extends BaseDaoutil implements IStudentDao {
     public List<StudentBean> studentInfo() {
         return null;
     }
+
+    public List<ScoreBean> idscore(String s_studentid){
+        String sql="SELECT * FROM score WHERE sc_studentid=?";
+        Object[] num={s_studentid};
+        List<ScoreBean> scoreBeans=super.query(sql,num,ScoreBean.class);
+        return scoreBeans != null && scoreBeans.size() > 0 ? scoreBeans : null;
+    }
 }

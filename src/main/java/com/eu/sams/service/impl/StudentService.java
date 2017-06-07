@@ -24,4 +24,12 @@ public class StudentService implements IStudentService {
     public List<StudentBean> studentInfo() {
         return null;
     }
+
+    public List<ScoreBean> idscore(String s_studentid){
+        try {
+            return studentDao.idscore(s_studentid);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 }

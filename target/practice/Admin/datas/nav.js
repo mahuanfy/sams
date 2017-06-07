@@ -25,7 +25,7 @@ var navs3 = [{
 	"children": [{
 		"title": "学生成绩信息",
 		"icon": "fa-check-square-o",
-		"href": "Sscore.jsp"
+		"href": "student_score.jsp"
 	}]
 }, {
 	"title": "课程详情",
@@ -64,22 +64,22 @@ var navs3 = [{
 
 
 var navs1 = [{
-    "title": "学生信息",
+    "title": "我的信息",
     "icon": "fa fa-mortar-board ",
     "spread": false,
     "children": [{
         "title": "信息详情",
         "icon": " fa fa-id-card",
-        "href": "button.jsp"
+        "href": "weiwancheng.html"
     }]
 }, {
-    "title": "学生成绩",
+    "title": "查看成绩",
     "icon": "fa fa-bank",
     "spread": false,
     "children": [{
-        "title": "学生成绩信息",
+        "title": "查看成绩信息",
         "icon": "fa-check-square-o",
-        "href": "weiwancheng.html"
+        "href": "student_score.jsp"
     }]
 },
     {
@@ -150,7 +150,7 @@ var navs2 = [ {
     "children": [{
         "title": "学生成绩信息",
         "icon": "fa-check-square-o",
-        "href": "weiwancheng.html"
+        "href": "teacher_score.jsp"
     }]
 }, {
     "title": "课程详情",

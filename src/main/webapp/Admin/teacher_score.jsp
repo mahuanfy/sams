@@ -40,12 +40,16 @@
                     "<th>"+data[i]['sc_class9']+"</th>"+
                     "<th>"+data[i]['sc_class10']+"</th>"+
                     "<td>"+
-                    "<a href='/manage/article_edit_1' class='layui-btn layui-btn-mini'>编辑</a>&nbsp;&nbsp;"+
+                    "<a href='${pageContext.request.contextPath}/StudentServlet?method= sc_idscore&sc_id="+ data[i]['sc_id'] +" ' class='layui-btn layui-btn-mini' onclick='student_compile(data[1]['sc_id'])'>编辑</a>&nbsp;&nbsp;"+
                     "<a href='javascript:;' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</a> </td></tr>");
                 }
             },
             "json"
         );
+
+//        function student_compile(sc_studentid) {
+//            alert(sc_studentid);
+//        }
     });
 </script>
 <body>
@@ -149,6 +153,7 @@
                 }
             }
         });
+//编辑页面
 
 
 

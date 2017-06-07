@@ -106,7 +106,7 @@
             <ul class="layui-nav admin-header-item">
                 <!--<li class="layui-nav-item">-->
                 <!--<a href="javascript:;">清除缓存</a>-->
-                <!--</li>-->
+                 <!--</li>-->
                 <!--<li class="layui-nav-item">-->
                 <!--<a href="javascript:;">浏览网站</a>-->
                 <!--</li>-->
@@ -165,7 +165,10 @@
         </div>
     </div>
     <div class="layui-side layui-bg-black" id="admin-side">
-        <div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side"></div>
+
+        <div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side">
+
+        </div>
     </div>
     <div class="layui-body" style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
         <div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">

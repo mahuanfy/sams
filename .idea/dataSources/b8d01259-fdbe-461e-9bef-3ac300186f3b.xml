@@ -207,12 +207,12 @@
       <DataType>int(11)|0</DataType>
     </column>
     <column id="66" parent="24" name="sc_studentid">
-      <Position>3</Position>
+      <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="67" parent="24" name="sc_name">
-      <Position>2</Position>
+      <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
     <key id="68" parent="24" name="PRIMARY">
