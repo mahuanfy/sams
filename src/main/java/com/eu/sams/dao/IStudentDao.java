@@ -6,13 +6,14 @@ import com.eu.sams.entity.StudentBean;
 import java.util.List;
 
 /**
- * Created by 马欢欢 on 2017/6/6.
+ * Created by 杨路鹏 on 2017/6/6.
  */
 public interface IStudentDao {
 
     /**
      * 查找学生信息
      */
-    List <StudentBean> studentInfo();
+    List <StudentBean> studentInfo(String s_studentid);
+
 
 }

@@ -70,7 +70,7 @@ var navs1 = [{
     "children": [{
         "title": "信息详情",
         "icon": " fa fa-id-card",
-        "href": "weiwancheng.html"
+        "href": "student_info.jsp"
     }]
 }, {
     "title": "查看成绩",
