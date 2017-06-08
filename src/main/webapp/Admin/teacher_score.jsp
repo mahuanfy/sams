@@ -23,7 +23,7 @@
 
     $(document).ready(function () {
 
-        $.post("${pageContext.request.contextPath}/StudentServlet?method=score ",
+        $.post("${pageContext.request.contextPath}/ScoreServlet?method=score ",
             function (data, status) {
                 $("#Student_currise").html("");
                 for (var i = 0; i < data.length; i++) {
@@ -43,7 +43,7 @@
                         "<th>" + data[i]['sc_class10'] + "</th>" +//onclick='student_compile(" + data[i]['sc_id'] + ")'
                         "<td>" +
                         "<button class='layui-btn layui-btn-mini' onclick='student_compile(" + data[i]['sc_id'] + ")'>编辑</button>&nbsp;&nbsp;" +
-                        "<button href='javascript:;' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</button> </td></tr>");
+                        "<button href='javascript:;' data-id='1' onclick='student_delete(" + data[i]['sc_id'] + ")' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</button> </td></tr>");
                 }
             },
             "json"
@@ -52,8 +52,21 @@
 //按照id查找
 
     });
+    function student_delete(sc_id) {
+        layer.confirm('是否删除?', {icon: 3, title:'确认删除'}, function(index){
+            $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idDelete&sc_id="+sc_id,
+                function (data,status) {
+                    layer.msg('删除成功', {icon: 1});
+                    location.href="${pageContext.request.contextPath}/Admin/teacher_score.jsp";
+                }
+            );
+            layer.close(index);
+        });
+
+    }
+
     function student_compile(sc_id) {
-        $.post("${pageContext.request.contextPath}/StudentServlet?method=sc_idscore&sc_id="+sc_id,
+        $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idscore&sc_id="+sc_id,
             function (data, status) {
                 $("input[name='sc_studentid']").val(data[0]["sc_studentid"]);
                 $("input[name='sc_name']").val(data[0]["sc_name"]);
@@ -74,14 +87,25 @@
             layer.open({
                 type: 1,
                 title: '学生信息更改',
-                area: ['1050px', '500px'],
+                area: ['1050px', '400px'],
                 skin: 'yourclass',
                 content: $('#student_div'),
             });
 
     }
 
-    //添加数据弹出框
+    //添加学生及成绩弹出框
+    $(function () {
+        $("#add").click(function () {
+            layer.open({
+                type: 1,
+                title: '添加学生信息',
+                area: ['1050px', '400px'],
+                skin: 'yourclass',
+                content: $('#student_info'),
+            });
+        });
+    });
 
 </script>
 <body>
@@ -89,22 +113,30 @@
 
     <blockquote class="layui-elem-quote">
         <a href="javascript:;" class="layui-btn layui-btn-small" id="add">
-            <i class="layui-icon">&#xe608;</i> 修改学生成绩
+            <i class="layui-icon">&#xe608;</i> 添加学生及成绩
         </a>
-        <%--<a href="#" class="layui-btn layui-btn-small" id="import">--%>
-        <%--<i class="layui-icon">&#xe608;</i> 导入信息--%>
-        <%--</a>--%>
-        <%--<a href="#" class="layui-btn layui-btn-small">--%>
-        <%--<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息--%>
-        <%--</a>--%>
-        <%--<a href="javascript:;" class="layui-btn layui-btn-small" id="search">--%>
-        <%--<i class="layui-icon">&#xe615;</i> 搜索--%>
-        <%--</a>--%>
     </blockquote>
     <fieldset class="layui-elem-field">
         <legend>学生成绩列表</legend>
         <div class="layui-field-box">
             <table class="site-table table-hover">
+                <colgroup>
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="">
+                    <col width="108">
+                </colgroup>
                 <thead>
                 <tr>
                     <th><input type="checkbox" id="selected-all"></th>
@@ -124,29 +156,7 @@
                     <th>操作</th>
                 </tr>
                 </thead>
-                <tbody id="Student_currise">
-
-                <%--<td><input type="checkbox"></td>--%>
-                <%--<th>编号</th>--%>
-                <%--<th>学号</th>--%>
-                <%--<th>姓名</th>--%>
-                <%--<th>web技术开发(java)</th>--%>
-                <%--<th>计算机组成原理</th>--%>
-                <%--<th>软件工程</th>--%>
-                <%--<th>大学英语</th>--%>
-                <%--<th>网站设计</th>--%>
-                <%--<th>工科数学</th>--%>
-                <%--<th>C语言程序设计</th>--%>
-                <%--<th>php程序设计</th>--%>
-                <%--<th>orcal数据库</th>--%>
-                <%--<th>html5入门</th>--%>
-                <%--<td>--%>
-                <%--<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>--%>
-                <%--<a href="/manage/article_edit_1" class="layui-btn layui-btn-mini">编辑</a>--%>
-                <%--<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>--%>
-                <%--</td>--%>
-
-                </tbody>
+                <tbody id="Student_currise"></tbody>
             </table>
 
         </div>
@@ -185,56 +195,12 @@
                 }
             }
         });
-//编辑页面
-
-
-//        $('.site-table tbody tr').on('click', function(event) {
-//            var $this = $(this);
-//            var $input = $this.children('td').eq(0).find('input');
-//            $input.on('ifChecked', function(e) {
-//                $this.css('background-color', '#EEEEEE');
-//            });
-//            $input.on('ifUnchecked', function(e) {
-//                $this.removeAttr('style');
-//            });
-//            $input.iCheck('toggle');
-//        }).find('input').each(function() {
-//            var $this = $(this);
-//            $this.on('ifChecked', function(e) {
-//                $this.parents('tr').css('background-color', '#EEEEEE');
-//            });
-//            $this.on('ifUnchecked', function(e) {
-//                $this.parents('tr').removeAttr('style');
-//            });
-//        });
-//        $('.site-table tbody tr').on('click', function(event) {
-//            var $this = $(this);
-//            var $input = $this.children('td').eq(0).find('input');
-//            $input.on('ifChecked', function(e) {
-//                $this.css('background-color', '#EEEEEE');
-//            });
-//            $input.on('ifUnchecked', function(e) {
-//                $this.removeAttr('style');
-//            });
-//            $input.iCheck('toggle');
-//        }).find('input').each(function() {
-//            var $this = $(this);
-//            $this.on('ifChecked', function(e) {
-//                $this.parents('tr').css('background-color', '#EEEEEE');
-//            });
-//            $this.on('ifUnchecked', function(e) {
-//                $this.parents('tr').removeAttr('style');
-//            });
-//        });
-//        $('#selected-all').on('ifChanged', function(event) {
-//            var $input = $('.site-table tbody tr td').find('input');
-//            $input.iCheck(event.currentTarget.checked ? 'check' : 'uncheck');
-//        });
     });
 </script>
 </body>
+
 <div id="student_div" style="display: none">
-    <form class="layui-form" action="${pageContext.request.contextPath}/StudentServlet?method=saveById" method="post">
+    <form class="layui-form" action="${pageContext.request.contextPath}/ScoreServlet?method=saveById" method="post">
         <div style="width: 20px;"></div>
         <div class="huan_a"></div>
         <div class="layui-form-item">
@@ -276,7 +242,6 @@
             </div>
         </div>
         <div class="layui-form-item">
-
             <div class="layui-inline">
                 <label class="layui-form-label">网站设计</label>
                 <div class="layui-input-inline">
@@ -319,11 +284,104 @@
             </div>
         </div>
 
-            <div style="width: 20px;"></div>
-            <div class="layui-input-block huan_center">
-                <button id="button_aaa" class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        <div style="width: 20px; "></div>
+        <div class="layui-input-block huan_center">
+            <button id="button_aaa" class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </form>
+</div>
+<div id="student_info" style="display: none">
+    <form class="layui-form" action="${pageContext.request.contextPath}/ScoreServlet?method=addStudentResult" method="post">
+        <div style="width: 20px;"></div>
+        <div class="huan_a"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-inline">
+                <input    name="sc_studentid1"  autocomplete="off" class="layui-input">
             </div>
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-inline">
+                <input    name="sc_name1"  autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">web技术开发(java)</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class11" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">计算机组成原理</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class21" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">软件工程</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class31" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">大学英语</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class41" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+                <label class="layui-form-label">网站设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class51" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">工科数学</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class61" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">C语言程序设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class71" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">php程序设计</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class81" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">orcal数据库</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class91" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">html5入门</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="sc_class101" lay-verify="number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 20px;"></div>
+        <div class="layui-input-block huan_center" >
+            <button id="button_bbb" class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
     </form>
 </div>
 <script>

@@ -20,7 +20,7 @@
 <body>
 <script type="text/javascript">
     $(function () {
-        $.post("${pageContext.request.contextPath}/StudentServlet?method=idscore",
+        $.post("${pageContext.request.contextPath}/ScoreServlet?method=idscore",
             function (data,status) {
                 $("#Studentid_currise").html("");
                 for(var i=0;i<data.length;i++){

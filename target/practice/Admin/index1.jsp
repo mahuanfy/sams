@@ -64,30 +64,6 @@
     <%
     }
     %>
-    <%--aa = <%studentBean.getS_rank();%>--%>
-
-    <%--alert(aa);--%>
-    <%--$.post("${pageContext.request.contextPath}/UserAction?method=rank",--%>
-    <%--function (data, status) {--%>
-    <%--rank = data;--%>
-    <%--}--%>
-    <%--)--%>
-    //        //自带
-    //        layui.use('layer', function () {
-    //            var $ = layui.jquery,
-    //                layer = layui.layer;
-    //
-    //            $('#video1').on('click', function () {
-    //                layer.open({
-    //                    title: 'YouTube',
-    //                    maxmin: true,
-    //                    type: 2,
-    //                    content: 'video.html',
-    //                    area: ['800px', '500px']
-    //                });
-    //            });
-    //        });
-
 </script>
 <script type="text/javascript" src="datas/nav.js"></script>
 <script src="js/index.js"></script>
@@ -104,15 +80,6 @@
                 </div>
             </div>
             <ul class="layui-nav admin-header-item">
-                <!--<li class="layui-nav-item">-->
-                <!--<a href="javascript:;">清除缓存</a>-->
-                 <!--</li>-->
-                <!--<li class="layui-nav-item">-->
-                <!--<a href="javascript:;">浏览网站</a>-->
-                <!--</li>-->
-                <!--<li class="layui-nav-item" id="video1">-->
-                <!--<a href="javascript:;">视频</a>-->
-                <!--</li>-->
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="admin-header-user">
                         <img src="images/0.jpg"/>

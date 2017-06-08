@@ -5,3 +5,6 @@
 .admin-table-page .page{padding-left:20px;}
 .admin-table-page .page .layui-laypage {margin: 6px 0 0 0;}
 .table-hover tbody tr:hover{ background-color: #EEEEEE; }
+.layui-input-block{
+    margin-left: 446px;
+}
