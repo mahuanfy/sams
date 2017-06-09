@@ -41,6 +41,9 @@ public class EvaluateServlet extends HttpServlet {
             find_studentMessage(req,resp);
         }else if (method.equals("findStudentToTeacherEvaluate")){
             findStudentToTeacherEvaluate(req,resp);
+        }else if(method.equals("find_teacherMessage")){
+            find_teacherMessage(req,resp);
+
         }
     }
     protected void teacherEvaluateStudent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -91,6 +94,15 @@ public class EvaluateServlet extends HttpServlet {
         JSONArray jsonArray = JSONArray.fromObject(evaluateBeans);
         System.out.println(jsonArray);
         response.getWriter().print(jsonArray);
+
+    }
+    private void find_teacherMessage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<EvaluateBean> evaluateBeans=evaluateService.find_teacherMessage("1");
+        System.out.println(333);
+        JSONArray jsonArray=JSONArray.fromObject(evaluateBeans);
+        System.out.println(jsonArray);
+        resp.getWriter().print(jsonArray);
+
 
     }
 

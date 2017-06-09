@@ -28,5 +28,9 @@ public interface IEvaluateService {
      *通过老师工号和 状态属性e_discern查找学生留言
      */
     List <EvaluateBean> findStudentToTeacherEvaluate(EvaluateBean evaluateBean);
+    /**
+     * 查询老师留言
+     * */
+    List<EvaluateBean> find_teacherMessage(String e_discern);
 
 }

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.eu.sams.entity.StudentBean" %><%--
   Created by IntelliJ IDEA.
   User: 马欢欢
   Date: 2017/6/9
@@ -17,13 +18,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="plugins/layui/css/layui.css"  media="all">
     <script src="plugins/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
 </head>
-<body>
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $.post("${pageContext.request.contextPath}/EvaluateServlet?method=find_teacherMessage",
+            function (data,status) {
+                $("#zz").html("");
+                for (var i=0;i<data.length;i++){
+                    $("#zz").append("<div class='layui-elem-quote'>工号："+ data[i]['e_teacherid']+"<br> <b>马老师<%--<%=studentBean.getS_username()%>--%>: </b>"+data[i]['e_message_t']+" <div>"+data[i]['e_time']+"</div></div>");
+                }
+            },
+            "json"
+        );
+
+    });
+</script>
+<body>
+<%--<%
+    List list= (List) session.getAttribute("info");
+    StudentBean studentBean = (StudentBean) list.get(0);
+%>--%>
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-    <legend>学生的留言信息</legend>
-    <blockquote class="layui-elem-quote">这个貌似不用多介绍，因为你已经在太多的地方都看到</blockquote>
+    <legend>公告栏</legend>
+
+    <div id="zz">
+
+    </div>
+
+
+
+
+
 </fieldset>
 
 </body>

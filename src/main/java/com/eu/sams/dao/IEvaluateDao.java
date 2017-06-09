@@ -30,5 +30,9 @@ public interface IEvaluateDao {
      */
     List <EvaluateBean> findStudentToTeacherEvaluate(EvaluateBean evaluateBean);
 
+    /**
+     * 查看老师公告
+     * */
+    List<EvaluateBean> find_teacherMessage(String e_discern);
 
 }

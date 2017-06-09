@@ -52,4 +52,13 @@ public class EvaluateService implements IEvaluateService {
         }
 
     }
+    public List<EvaluateBean> find_teacherMessage(String e_discern) {
+        try {
+            return evaluateDao.find_teacherMessage(e_discern);
+
+        }catch (Exception e){
+            throw  new  RuntimeException(e);
+        }
+
+    }
 }
