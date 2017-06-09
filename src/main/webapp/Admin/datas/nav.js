@@ -183,14 +183,14 @@ var navs2 = [ {
             {
                 "title": "查看留言",
                 "icon": "fa-check-square-o",
-                "href": "weiwancheng.html"
+                "href": "teacher_SeachMessag.jsp"
             }
         ]
     },
 	{
     "title": "关于我们",
     "icon": "fa fa-hand-o-right",
-    "spread": true,
+    "spread": false,
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",

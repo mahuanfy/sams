@@ -15,20 +15,32 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="plugins/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
     <script src="plugins/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
     <legend>学生的留言信息</legend>
-    <blockquote class="layui-elem-quote">这个貌似不用多介绍，因为你已经在太多的地方都看到</blockquote>
+    <%--<blockquote  class="layui-elem-quote">--%>
+        <div id ="teacher_Evaluate">
+        </div>
+    <%--</blockquote>--%>
 </fieldset>
 
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.post();
+        $.post(
+            "${pageContext.request.contextPath}/EvaluateServlet?method=findStudentToTeacherEvaluate",
+            function (data, status) {
+                $("#teacher_Evaluate").html("");
+                for(var i =0;i<data.length;i++) {
+                    $("#teacher_Evaluate").append("<div class='layui-elem-quote'><b>编号："+(i+1)+"</b><br> 学号：" + data[i]['e_studentid'] + "<br><b>假装有姓名: </b>" + data[i]['e_sudent_t'] + " <div>" + data[i]['e_time'] + " </div></div>");
+                }
+            },
+            "json"
+        );
     });
 </script>
 </html>

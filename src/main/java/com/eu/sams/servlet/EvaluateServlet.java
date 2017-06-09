@@ -39,6 +39,8 @@ public class EvaluateServlet extends HttpServlet {
             studentMessage(req,resp);
         }else if (method.equals("find_studentMessage")){
             find_studentMessage(req,resp);
+        }else if (method.equals("findStudentToTeacherEvaluate")){
+            findStudentToTeacherEvaluate(req,resp);
         }
     }
     protected void teacherEvaluateStudent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -79,5 +81,18 @@ public class EvaluateServlet extends HttpServlet {
         response.getWriter().print(jsonArray);
 
     }
+
+    private void findStudentToTeacherEvaluate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<TeacherBean> teacherBeans= (List<TeacherBean>) request.getSession().getAttribute("info");
+        EvaluateBean evaluateBean = new EvaluateBean();
+        evaluateBean.setE_teacherid(teacherBeans.get(0).getT_teacherid());
+        evaluateBean.setE_discern("2");
+        List<EvaluateBean> evaluateBeans= evaluateService.findStudentToTeacherEvaluate(evaluateBean);
+        JSONArray jsonArray = JSONArray.fromObject(evaluateBeans);
+        System.out.println(jsonArray);
+        response.getWriter().print(jsonArray);
+
+    }
+
 
 }

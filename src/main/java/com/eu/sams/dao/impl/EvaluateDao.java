@@ -36,6 +36,9 @@ public class EvaluateDao extends BaseDaoutil implements IEvaluateDao {
     }
 
     public List<EvaluateBean> findStudentToTeacherEvaluate(EvaluateBean evaluateBean) {
-        return null;
+        String sql = " SELECT * FROM evaluate WHERE e_teacherid=? AND e_discern=? order by e_id desc ; ";
+        Object [] num= {evaluateBean.getE_teacherid(),evaluateBean.getE_discern()};
+        List <EvaluateBean> evaluateBeans = super.query(sql,num,EvaluateBean.class);
+        return evaluateBeans !=null && evaluateBeans.size()>0 ?evaluateBeans:null;
     }
 }

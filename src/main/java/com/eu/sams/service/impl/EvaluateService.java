@@ -38,10 +38,18 @@ public class EvaluateService implements IEvaluateService {
 
     public List<EvaluateBean> find_studentMessage(String e_studentid) {
         try{
-            System.out.println("222222");
             return evaluateDao.find_studentMessage(e_studentid);
         }catch (Exception e){
             throw new RuntimeException(e);
         }
+    }
+
+    public List<EvaluateBean> findStudentToTeacherEvaluate(EvaluateBean evaluateBean) {
+        try{
+            return evaluateDao.findStudentToTeacherEvaluate(evaluateBean);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+
     }
 }

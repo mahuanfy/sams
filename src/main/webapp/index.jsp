@@ -85,7 +85,7 @@
             </div>
             <footer class="page-copyright">
                 <p>© 2017
-                    <a href="" target="_blank">Eurasia DSS</a>
+                    <a href="" target="_blank">学生成绩管理系统</a>
                 </p>
             </footer>
         </div>
@@ -144,7 +144,7 @@
             </div>
             <footer class="page-copyright">
                 <p>© 2017
-                    <a href="" target="_blank">Eurasia DSS</a>
+                    <a href="" >Eurasia DSS</a>
                 </p>
             </footer>
         </div>
