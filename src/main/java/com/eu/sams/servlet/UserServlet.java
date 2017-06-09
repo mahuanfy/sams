@@ -33,12 +33,15 @@ public class UserServlet extends HttpServlet {
         String method = req.getParameter("method");
         if(method.equals("slogin")){
             slogin(req,resp);
-        }
+        }else
         if (method.equals("tlogin")){
             tlogin(req,resp);
-        }
+        }else
         if (method.equals("alogin")){
             alogin(req,resp);
+        }else
+        if (method.equals("logout")){
+            logout(req,resp);
         }
     }
     protected void slogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -83,6 +86,12 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("err","用户名或密码错误，请重新登录");
             response.sendRedirect(request.getContextPath()+"/Admin/index.html");
         }
+    }
+protected void logout(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+            request.getSession().removeAttribute("info");
+            request.getSession().removeAttribute("err");
+            request.getSession().removeAttribute("identity");
+
     }
 
 

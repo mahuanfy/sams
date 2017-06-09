@@ -30,12 +30,9 @@
                 $("input[name='s_username']").val(data[0]['s_username']);
                 $("input[name='s_sex']").val(data[0]['s_sex']);
                 $("input[name='s_class']").val(data[0]['s_class']);
-
-
             },
             "json"
         );
-
     });
 </script>
 <body>

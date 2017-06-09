@@ -119,7 +119,7 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="../index.jsp"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+                            <a id ="logout"><i   class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
                         </dd>
                     </dl>
                 </li>
@@ -155,7 +155,7 @@
     <div class="layui-footer footer footer-demo" id="admin-footer">
         <div class="layui-main">
             <p>2017 &copy;
-                <a href="http://www.mycodes.net/" target="_blank">欧亚决策支持系统后台</a> Eurasia Decision Support System
+                <a href="http://www.mycodes.net/" target="_blank">学生成绩管理系统</a>  Student result management system
             </p>
         </div>
     </div>
@@ -176,8 +176,19 @@
         </div>
     </script>
     <!--锁屏模板 end -->
-
-
+    <script type="text/javascript">
+        $(function () {
+            $("#logout").click(function () {
+                $.post("${pageContext.request.contextPath}/UserServlet?method=logout",
+                    function (data ,status) {
+                        layer.msg('注销成功', {icon: 1}, function(){
+                            location.reload();
+                        });
+                    }
+                );
+            });
+        });
+    </script>
 </div>
 </body>
 

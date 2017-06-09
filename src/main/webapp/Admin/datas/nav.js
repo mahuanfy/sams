@@ -89,7 +89,7 @@ var navs1 = [{
         "children": [{
             "title": "留言板",
             "icon": "fa-check-square-o",
-            "href": "weiwancheng.html"
+            "href": "student_evaluaate.html"
 		},
             {
                 "title": "评价",
@@ -178,7 +178,7 @@ var navs2 = [ {
         "children": [{
             "title": "发布任务",
             "icon": "fa-check-square-o",
-            "href": "weiwancheng.html"
+            "href": "teacher_evaluaate.jsp"
         },
             {
                 "title": "查看留言",
