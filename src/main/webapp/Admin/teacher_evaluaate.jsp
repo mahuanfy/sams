@@ -1,4 +1,5 @@
 <%@ page import="java.util.*" %>
+<%@ page import="com.eu.sams.entity.TeacherBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -19,10 +20,10 @@
 </fieldset>
 
 <textarea class="layui-textarea" id="LAY_demo1" style="display: none">
-    发布区
+
 </textarea>
 
-<div class="site-demo-button" style="margin-top: 20px;">
+<div class="site-demo-button" style="margin-top: 20px;margin-left: 20px;margin-left: 50px;">
     <button class="layui-btn site-demo-layedit" data-type="content">提交</button>
     <!--<button class="layui-btn site-demo-layedit" data-type="text">获取编辑器纯文本内容</button>-->
     <!--<button class="layui-btn site-demo-layedit" data-type="selection">获取编辑器选中内容</button>-->
@@ -38,6 +39,10 @@
 
 
 <script src="plugins/layui/layui.js" charset="utf-8"></script>
+<%
+   List  list= (List) session.getAttribute("info");
+   TeacherBean teacherBean = (TeacherBean) list.get(0);
+%>
 <script type="text/javascript">
     //查找理留言信息
     $(document).ready(function () {
@@ -45,7 +50,7 @@
             function (data,status ) {
                 $(".aaa").html("");
                 for (var i = 0; i < data.length; i++) {
-                    $("#aaa").append("<div class='layui-elem-quote'>教师工号："+ data[i]['e_teacherid']+"<br>马老师：<b>"+data[i]['e_message_t']+"</b> <div>"+data[i]['e_time']+"</div></div>");
+                    $("#aaa").append("<div class='layui-elem-quote layui-quote-nm'>教师工号："+ data[i]['e_teacherid']+"<br> <b><%=teacherBean.getT_username()%>: </b>"+data[i]['e_message_t']+" <div>"+data[i]['e_time']+"</div></div>");
                 }
             },
             "json"
@@ -78,7 +83,7 @@
                             e_time:t
                         },
                         function (data,status ) {
-                            layer.msg('发布成功', {icon: 1},function(){
+                            layer.msg('发布成功', {icon: 1,time: 1000},function(){
                                 location.reload();
                             });
                         }

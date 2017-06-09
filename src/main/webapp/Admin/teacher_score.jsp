@@ -56,7 +56,7 @@
         layer.confirm('是否删除?', {icon: 3, title:'确认删除'}, function(index){
             $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idDelete&sc_id="+sc_id,
                 function (data,status) {
-                    layer.msg('删除成功', {icon: 1});
+                    layer.msg('删除成功', {icon: 1,time: 1000});
                     location.href="${pageContext.request.contextPath}/Admin/teacher_score.jsp";
                 }
             );

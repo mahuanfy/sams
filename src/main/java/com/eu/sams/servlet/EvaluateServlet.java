@@ -1,6 +1,7 @@
 package com.eu.sams.servlet;
 
 import com.eu.sams.entity.EvaluateBean;
+import com.eu.sams.entity.StudentBean;
 import com.eu.sams.entity.TeacherBean;
 import com.eu.sams.service.IEvaluateService;
 import com.eu.sams.service.impl.EvaluateService;
@@ -16,7 +17,7 @@ import java.util.*;
 import java.io.IOException;
 
 /**
- * Created by 马欢欢 on 2017/6/9.
+ * Created by 马欢欢&杨璐鹏 on 2017/6/9.
  */
 @WebServlet(name = "EvaluateServlet",urlPatterns = "/EvaluateServlet")
 public class EvaluateServlet extends HttpServlet {
@@ -34,14 +35,10 @@ public class EvaluateServlet extends HttpServlet {
         }else
         if(method.equals("findteacherEvaluateStudent")){
             findteacherEvaluateStudent(req,resp);
-        }else if(method.equals("idscore")){
-
-        }else if(method.equals("saveById")){
-
-        }else if(method.equals("sc_idDelete")){
-
-        }else if(method.equals("addStudentResult")){
-            System.out.println("查询成绩");
+        }if (method.equals("studentMessage")){
+            studentMessage(req,resp);
+        }else if (method.equals("find_studentMessage")){
+            find_studentMessage(req,resp);
         }
     }
     protected void teacherEvaluateStudent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,4 +60,24 @@ public class EvaluateServlet extends HttpServlet {
         System.out.println("老师留言信息："+jsonArray);
         resp.getWriter().print(jsonArray);
     }
+    private void studentMessage(HttpServletRequest request, HttpServletResponse response) {
+        EvaluateBean evaluateBean=new EvaluateBean();
+        System.out.println(88888);
+        List<StudentBean> studentBeans= (List<StudentBean>) request.getSession().getAttribute("info");
+        evaluateBean.setE_studentid(studentBeans.get(0).getS_studentid());
+        evaluateBean.setE_sudent_t(request.getParameter("e_sudent_t"));
+        evaluateBean.setE_time(request.getParameter("e_time"));
+        evaluateBean.setE_discern("2");
+        evaluateBean.setE_teacherid(request.getParameter("e_teacherid"));
+        evaluateService.studentMessage(evaluateBean);
+    }
+    private void find_studentMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<StudentBean> studentBeans= (List<StudentBean>) request.getSession().getAttribute("info");
+        List<EvaluateBean> evaluateBeans= evaluateService.find_studentMessage(studentBeans.get(0).getS_studentid());
+        JSONArray jsonArray = JSONArray.fromObject(evaluateBeans);
+        System.out.println(jsonArray);
+        response.getWriter().print(jsonArray);
+
+    }
+
 }

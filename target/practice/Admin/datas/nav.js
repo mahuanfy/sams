@@ -7,7 +7,7 @@ var navs3 = [{
 	"children": [{
 		"title": "信息详情",
 		"icon": " fa fa-id-card",
-		"href": "button.jsp"
+		"href": "paging.html"
 	}]
 }, {
 	"title": "老师信息",
@@ -16,7 +16,7 @@ var navs3 = [{
 	"children": [{
 		"title": "信息详情",
 		"icon": "fa fa-address-book-o",
-		"href": "weiwancheng.html"
+		"href": "paging.html"
 	}]
 }, {
 	"title": "学生成绩",
@@ -35,15 +35,15 @@ var navs3 = [{
 	"children": [{
 		"title": "软件工程课程",
 		"icon": "fa fa-dedent",
-		"href": "https://www.github.com/"
+		"href": "weiwancheng.html"
 	}, {
 		"title": "通信工程课程",
 		"icon": "fa fa-dedent",
-		"href": "http://www.qq.com/"
+		"href": "weiwancheng.html"
 	}, {
         "title": "电子信息技术课程",
         "icon": "fa fa-dedent",
-        "href": "http://weibo.com/"
+        "href": "weiwancheng.html"
     }]
 },{
     "title": "关于我们",
@@ -52,11 +52,11 @@ var navs3 = [{
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "paging.html"
+        "href": "weiwancheng.html"
     }, {
             "title": "联系我们",
             "icon": " fa fa-envelope",
-            "href": "http://weibo.com/"
+            "href": "weiwancheng.html"
 	}]
 }
 ];
@@ -89,12 +89,12 @@ var navs1 = [{
         "children": [{
             "title": "留言板",
             "icon": "fa-check-square-o",
-            "href": "student_evaluaate.html"
+            "href": "student_evaluaate.jsp"
 		},
             {
-                "title": "评价",
+                "title": "查看老师通告",
                 "icon": "fa-check-square-o",
-                "href": "weiwancheng.html"
+                "href": "student_SeachMessag.jsp"
             }
 		]
     },
@@ -106,15 +106,15 @@ var navs1 = [{
     "children": [{
         "title": "软件工程课程",
         "icon": "fa fa-dedent",
-        "href": "https://www.github.com/"
+        "href": "weiwancheng.html"
     }, {
         "title": "通信工程课程",
         "icon": "fa fa-dedent",
-        "href": "http://www.qq.com/"
+        "href": "weiwancheng.html"
     }, {
         "title": "电子信息技术课程",
         "icon": "fa fa-dedent",
-        "href": "http://weibo.com/"
+        "href": "weiwancheng.html"
     }]
 },{
     "title": "关于我们",
@@ -123,11 +123,11 @@ var navs1 = [{
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "paging.html"
+        "href": "weiwancheng.html"
     }, {
         "title": "联系我们",
         "icon": " fa fa-envelope",
-        "href": "http://weibo.com/"
+        "href": "weiwancheng.html"
     }]
 }
 ];
@@ -160,15 +160,15 @@ var navs2 = [ {
     "children": [{
         "title": "软件工程课程",
         "icon": "fa fa-dedent",
-        "href": "https://www.github.com/"
+        "href": "weiwancheng.html"
     }, {
         "title": "通信工程课程",
         "icon": "fa fa-dedent",
-        "href": "http://www.qq.com/"
+        "href": "weiwancheng.html"
     }, {
         "title": "电子信息技术课程",
         "icon": "fa fa-dedent",
-        "href": "http://weibo.com/"
+        "href": "weiwancheng.html"
     }]
 },
     {
@@ -194,11 +194,11 @@ var navs2 = [ {
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "paging.html"
+        "href": "weiwancheng.html"
     }, {
         "title": "联系我们",
         "icon": " fa fa-envelope",
-        "href": "http://weibo.com/"
+        "href": "weiwancheng.html"
     }]
 }
 ];

@@ -16,5 +16,12 @@ public interface IEvaluateService {
      * 将老师发布任务查找到该老师页面
      */
     List<EvaluateBean > findteacherEvaluateStudent(EvaluateBean evaluateBean);
-
+    /**
+     * 学生留言版
+     * */
+    void studentMessage(EvaluateBean evaluateBean);
+    /**
+     * find学生留言版
+     * */
+    List<EvaluateBean> find_studentMessage(String e_studentid);
 }

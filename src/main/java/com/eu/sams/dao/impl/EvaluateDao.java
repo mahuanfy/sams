@@ -17,9 +17,25 @@ public class EvaluateDao extends BaseDaoutil implements IEvaluateDao {
     }
 
     public List<EvaluateBean> findteacherEvaluateStudent(EvaluateBean evaluateBean) {
-        String sql = " SELECT * FROM evaluate WHERE e_teacherid=? AND e_discern=?; ";
+        String sql = " SELECT * FROM evaluate WHERE e_teacherid=? AND e_discern=? order by e_id desc; ";
         Object[] num={evaluateBean.getE_teacherid(),evaluateBean.getE_discern()};
         List <EvaluateBean> list = super.query(sql,num,EvaluateBean.class);
         return list !=null&&list.size()>0?list :null;
+    }
+    public void studentMessage(EvaluateBean evaluateBean) {
+        String sql="INSERT INTO evaluate(e_sudent_t,e_teacherid,e_studentid,e_time,e_discern) VALUE(?,?,?,?,?);";
+        Object[] eva={evaluateBean.getE_sudent_t(),evaluateBean.getE_teacherid(),evaluateBean.getE_studentid(),evaluateBean.getE_time(),evaluateBean.getE_discern()};
+        super.update(sql,eva);
+    }
+
+    public List<EvaluateBean> find_studentMessage(String e_studentid) {
+        String sql="SELECT * FROM evaluate WHERE e_studentid=? order by e_id desc ;";
+        Object[] num={e_studentid};
+        List<EvaluateBean> evaluateBeans =super.query(sql,num,EvaluateBean.class);
+        return evaluateBeans!=null && evaluateBeans.size()>0 ? evaluateBeans:null;
+    }
+
+    public List<EvaluateBean> findStudentToTeacherEvaluate(EvaluateBean evaluateBean) {
+        return null;
     }
 }

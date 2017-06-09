@@ -181,7 +181,7 @@
             $("#logout").click(function () {
                 $.post("${pageContext.request.contextPath}/UserServlet?method=logout",
                     function (data ,status) {
-                        layer.msg('注销成功', {icon: 1}, function(){
+                        layer.msg('注销成功', {icon: 1,time: 1000}, function(){
                             location.reload();
                         });
                     }
