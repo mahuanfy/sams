@@ -42,8 +42,7 @@
                         "<th>" + data[i]['sc_class9'] + "</th>" +
                         "<th>" + data[i]['sc_class10'] + "</th>" +//onclick='student_compile(" + data[i]['sc_id'] + ")'
                         "<td>" +
-                        "<button class='layui-btn layui-btn-mini' onclick='student_compile(" + data[i]['sc_id'] + ")'>编辑</button>&nbsp;&nbsp;" +
-                        "<button href='javascript:;' data-id='1' onclick='student_delete(" + data[i]['sc_id'] + ")' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini'>删除</button> </td></tr>");
+                        "<button class='layui-btn layui-btn-mini' onclick='student_compile(" + data[i]['sc_id'] + ")'>编辑</button></td></tr>");
                 }
             },
             "json"
@@ -52,18 +51,18 @@
 //按照id查找
 
     });
-    function student_delete(sc_id) {
-        layer.confirm('是否删除?', {icon: 3, title:'确认删除'}, function(index){
-            $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idDelete&sc_id="+sc_id,
-                function (data,status) {
-                    layer.msg('删除成功', {icon: 1,time: 1000});
-                    location.href="${pageContext.request.contextPath}/Admin/teacher_score.jsp";
-                }
-            );
-            layer.close(index);
-        });
+    <%--function student_delete(sc_id) {--%>
+        <%--layer.confirm('是否删除?', {icon: 3, title:'确认删除'}, function(index){--%>
+            <%--$.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idDelete&sc_id="+sc_id,--%>
+                <%--function (data,status) {--%>
+                    <%--layer.msg('删除成功', {icon: 1,time: 1000});--%>
+                    <%--location.href="${pageContext.request.contextPath}/Admin/teacher_score.jsp";--%>
+                <%--}--%>
+            <%--);--%>
+            <%--layer.close(index);--%>
+        <%--});--%>
 
-    }
+    <%--}--%>
 
     function student_compile(sc_id) {
         $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idscore&sc_id="+sc_id,
@@ -94,28 +93,28 @@
 
     }
 
-    //添加学生及成绩弹出框
-    $(function () {
-        $("#add").click(function () {
-            layer.open({
-                type: 1,
-                title: '添加学生信息',
-                area: ['1050px', '400px'],
-                skin: 'yourclass',
-                content: $('#student_info'),
-            });
-        });
-    });
+//    //添加学生及成绩弹出框
+//    $(function () {
+//        $("#add").click(function () {
+//            layer.open({
+//                type: 1,
+//                title: '添加学生信息',
+//                area: ['1050px', '400px'],
+//                skin: 'yourclass',
+//                content: $('#student_info'),
+//            });
+//        });
+//    });
 
 </script>
 <body>
 <div class="admin-main">
 
-    <blockquote class="layui-elem-quote">
-        <a href="javascript:;" class="layui-btn layui-btn-small" id="add">
-            <i class="layui-icon">&#xe608;</i> 添加学生及成绩
-        </a>
-    </blockquote>
+    <%--<blockquote class="layui-elem-quote">--%>
+        <%--<a href="javascript:;" class="layui-btn layui-btn-small" id="add">--%>
+            <%--<i class="layui-icon">&#xe608;</i> 添加学生及成绩--%>
+        <%--</a>--%>
+    <%--</blockquote>--%>
     <fieldset class="layui-elem-field">
         <legend>学生成绩列表</legend>
         <div class="layui-field-box">

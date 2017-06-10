@@ -83,8 +83,8 @@
                             e_time:t
                         },
                         function (data,status ) {
-                            layer.msg('发布成功', {icon: 1,time: 1000},function(){
-                                location.reload();
+                            layer.msg('发布成功', {icon: 1,time: 500},function(){
+
                             });
                         }
 

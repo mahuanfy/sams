@@ -10,6 +10,15 @@ public class TeacherBean {
     private String t_password;
     private String t_sex;
     private String t_rank;
+    private String t_tipsay;
+
+    public String getT_tipsay() {
+        return t_tipsay;
+    }
+
+    public void setT_tipsay(String t_tipsay) {
+        this.t_tipsay = t_tipsay;
+    }
 
     public int getT_id() {
         return t_id;

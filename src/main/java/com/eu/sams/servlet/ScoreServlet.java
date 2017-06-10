@@ -102,6 +102,6 @@ public class ScoreServlet extends HttpServlet {
         scoreBean.setSc_class9( Integer.parseInt(req.getParameter("sc_class91")));
         scoreBean.setSc_class10( Integer.parseInt(req.getParameter("sc_class101")));
         scoreService.addStudentResult(scoreBean);
-        resp.sendRedirect(req.getContextPath()+"/Admin/teacher_score.jsp");
+        resp.sendRedirect(req.getContextPath()+"/Admin/Admin_StudentScore.jsp");
     }
 }

@@ -316,7 +316,11 @@
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;2&apos;</DefaultExpression>
     </column>
-    <key id="89" parent="26" name="PRIMARY">
+    <column id="89" parent="26" name="t_tipsay">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="90" parent="26" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>t_id</ColNames>
       <Primary>1</Primary>

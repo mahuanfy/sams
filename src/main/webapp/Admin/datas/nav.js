@@ -1,22 +1,22 @@
 
-
+// 管理员
 var navs3 = [{
-	"title": "学生信息",
+	"title": "学生信息管理",
 	"icon": "fa fa-mortar-board ",
 	"spread": false,
 	"children": [{
 		"title": "信息详情",
 		"icon": " fa fa-id-card",
-		"href": "paging.html"
+		"href": "Admin_StudentInfo.jsp"
 	}]
 }, {
-	"title": "老师信息",
+	"title": "老师信息管理",
 	"icon": "fa fa-user",
 	"spread": false,
 	"children": [{
 		"title": "信息详情",
 		"icon": "fa fa-address-book-o",
-		"href": "paging.html"
+		"href": "Admin_TeacherInfo.jsp"
 	}]
 }, {
 	"title": "学生成绩",
@@ -25,7 +25,7 @@ var navs3 = [{
 	"children": [{
 		"title": "学生成绩信息",
 		"icon": "fa-check-square-o",
-		"href": "student_score.jsp"
+		"href": "Admin_StudentScore.jsp"
 	}]
 }, {
 	"title": "课程详情",
@@ -62,7 +62,7 @@ var navs3 = [{
 ];
 
 
-
+//学生
 var navs1 = [{
     "title": "我的信息",
     "icon": "fa fa-mortar-board ",
@@ -133,7 +133,7 @@ var navs1 = [{
 ];
 
 
-
+//老师
 var navs2 = [ {
     "title": "老师信息",
     "icon": "fa fa-user",
