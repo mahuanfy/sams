@@ -41,6 +41,17 @@ public class ScoreDao extends BaseDaoutil implements IScoreDao {
         super.update(sql,num);
     }
 
+    public void saveById1(ScoreBean scoreBean) {
+        String sql = " UPDATE  score SET  sc_studentid=?,sc_name=?, sc_class1=? ,sc_class2=?,sc_class3=?,sc_class4=?,sc_class5=?,sc_class6=?,sc_class7=?,sc_class8=?,sc_class9=?,sc_class10=? WHERE sc_id=?; ";
+        System.out.println(scoreBean.getSc_studentid());
+        Object[] num ={scoreBean.getSc_studentid(),scoreBean.getSc_name(),scoreBean.getSc_class1(),scoreBean.getSc_class2(),scoreBean.getSc_class3(),
+                scoreBean.getSc_class4(),scoreBean.getSc_class5(),scoreBean.getSc_class6(),
+                scoreBean.getSc_class7(),scoreBean.getSc_class8(),scoreBean.getSc_class9(),
+                scoreBean.getSc_class10(),scoreBean.getSc_id()};
+
+        super.update(sql,num);
+    }
+
     public void sc_idDelete(int sc_id) {
         String sql = " DELETE FROM score WHERE sc_id=? ";
         Object[] num ={sc_id};

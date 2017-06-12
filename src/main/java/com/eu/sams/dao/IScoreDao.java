@@ -26,6 +26,10 @@ public interface IScoreDao {
      * 根据学生学号保存学生数据
      */
     void saveById(ScoreBean scoreBean);
+    /**
+     * 管理员根据学生学号保存学生数据
+     */
+    void saveById1(ScoreBean scoreBean);
 
     /**
      * 根据学生学号id删除学生成绩

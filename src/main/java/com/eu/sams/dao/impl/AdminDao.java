@@ -30,15 +30,17 @@ public class AdminDao extends BaseDaoutil implements IAdminDao {
     }
 
     public void updataTeacher(TeacherBean teacherBean) {
-        String sql =" UPDATE teacher SET t_teacherid=?,t_username=?,t_password=?,t_sex=?,t_tipsay=? ";
-        Object[] num={teacherBean.getT_teacherid(),teacherBean.getT_username(),teacherBean.getT_password(),teacherBean.getT_sex(),teacherBean.getT_tipsay()};
+        String sql =" UPDATE teacher SET t_teacherid=?,t_username=?,t_password=?,t_sex=?,t_tipsay=? where t_id=?";
+        Object[] num={teacherBean.getT_teacherid(),teacherBean.getT_username(),teacherBean.getT_password(),teacherBean.getT_sex(),teacherBean.getT_tipsay(),teacherBean.getT_id()};
         super.update(sql,num);
     }
 
     public List<TeacherBean> findTeacherToId(int t_id) {
+        System.out.println(22222);
         String sql="SELECT * FROM teacher WHERE t_id=?";
         Object[] num={t_id};
-         List<TeacherBean>teacherBeans = super.query(sql,num,TeacherBean.class);
+         List<TeacherBean> teacherBeans = super.query(sql,num,TeacherBean.class);
+        System.out.println(222333);
         return teacherBeans!=null && teacherBeans.size()>0 ? teacherBeans : null;
 
     }

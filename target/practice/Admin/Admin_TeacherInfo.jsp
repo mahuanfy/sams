@@ -32,8 +32,8 @@
                         "<td>"+data[i]['t_sex']+"</td> " +
 						"<td>"+data[i]['t_tipsay']+"</td>"+
                         "<td>****</td> " +
-						"<td><a href='/manage/article_edit_1' class='layui-btn layui-btn-mini' onclick='updateTeacher("+data[i]['t_id']+")'>编辑</a>&nbsp;&nbsp;&nbsp;"+
-                        "<a href='javascript:;' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini' onclick='deleTeteacher("+data[i]['t_id']+")'>删除</a>"+
+						"<td><a  class='layui-btn layui-btn-mini' onclick='updateTeacher("+data[i]['t_id']+")'>编辑</a>&nbsp;&nbsp;&nbsp;"+
+                        "<a  data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini' onclick='deleTeteacher("+data[i]['t_id']+")'>删除</a>"+
                         "</td></tr>");
 				}
         	},
@@ -42,9 +42,9 @@
     });
 
     function updateTeacher (t_id) {
-        $.post("${pageContext.request.contextPath}/AdminServlet?method=",
+        $.post("${pageContext.request.contextPath}/AdminServlet?method=findTeacherToId",
             {
-                s_id:s_id
+                t_id:t_id
             },
             function (data,status) {
                 $("input[name='t_teacherid1']").val(data[0]['t_teacherid']);
@@ -70,7 +70,8 @@
 
 
     function deleTeteacher(t_id) {
-        $.post("${pageContext.request.contextPath}/AdminServlet?method=insertTeacher",
+
+        $.post("${pageContext.request.contextPath}/AdminServlet?method=deleteTeacher",
             {
                 t_id:t_id
             },
@@ -176,13 +177,13 @@
 		</div>
 		<div style="width: 20px; "></div>
 		<div class="layui-input-block huan_center">
-			<button id="" class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
+			<button  class="layui-btn" lay-submit="" type="submit"  >立即提交</button>
 			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		</div>
 	</form>
 </div>
 <div id="teacher_add_div1" style="display: none">
-	<form class="layui-form" action="${pageContext.request.contextPath}/AdminServlet?method=insertTeacher" method="post">
+	<form class="layui-form" action="${pageContext.request.contextPath}/AdminServlet?method=updataTeacher" method="post">
 		<div style="width: 20px;"></div>
 		<div class="huan_a"></div>
 		<div class="layui-form-item">

@@ -74,21 +74,26 @@ public class AdminServlet extends HttpServlet {
     protected void updataTeacher(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TeacherBean teacherBean = new TeacherBean();
         teacherBean.setT_id(Integer.parseInt(req.getParameter("t_id")));
-        teacherBean.setT_teacherid(req.getParameter("t_teacherid"));
-        teacherBean.setT_username(req.getParameter("t_username"));
-        teacherBean.setT_password(req.getParameter("t_password"));
-        teacherBean.setT_sex(req.getParameter("t_sex"));
-        teacherBean.setT_tipsay(req.getParameter("t_tipsay"));
+        teacherBean.setT_teacherid(req.getParameter("t_teacherid1"));
+        teacherBean.setT_username(req.getParameter("t_username1"));
+        teacherBean.setT_password(req.getParameter("t_password1"));
+        teacherBean.setT_sex(req.getParameter("t_sex1"));
+        teacherBean.setT_tipsay(req.getParameter("t_tipsay1"));
         adminService.updataTeacher(teacherBean);
         resp.sendRedirect(req.getContextPath()+"/Admin/Admin_TeacherInfo.jsp");
     }
     protected void findTeacherToId(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getParameter("t_id"));
         int t_id= Integer.parseInt(req.getParameter("t_id"));
         List<TeacherBean> teacherBeans= (List<TeacherBean>) adminService.findTeacherToId(t_id);
         JSONArray jsonArray = JSONArray.fromObject(teacherBeans);
         System.out.println(jsonArray);
-        resp.getWriter().print(jsonArray);
+            resp.getWriter().print(jsonArray);
+
     }
+
+
+
 
     private void Admin_StudentInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<StudentBean> studentBeans=adminService.Admin_StudentInfo();

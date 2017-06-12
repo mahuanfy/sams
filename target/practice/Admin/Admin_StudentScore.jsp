@@ -64,11 +64,12 @@
         });
 
     }
-
+//编辑
     function student_compile(sc_id) {
         $.post("${pageContext.request.contextPath}/ScoreServlet?method=sc_idscore&sc_id="+sc_id,
             function (data, status) {
                 $("input[name='sc_studentid']").val(data[0]["sc_studentid"]);
+                $("input[name='sc_id']").val(data[0]["sc_id"]);
                 $("input[name='sc_name']").val(data[0]["sc_name"]);
                 $("input[name='sc_class1']").val(data[0]["sc_class1"]);
                 $("input[name='sc_class2']").val(data[0]["sc_class2"]);
@@ -198,12 +199,13 @@
     });
 </script>
 </body>
-
+<%--编辑--%>
 <div id="student_div" style="display: none">
-    <form class="layui-form" action="${pageContext.request.contextPath}/ScoreServlet?method=saveById" method="post">
+    <form class="layui-form" action="${pageContext.request.contextPath}/ScoreServlet?method=saveById1" method="post">
         <div style="width: 20px;"></div>
         <div class="huan_a"></div>
         <div class="layui-form-item">
+            <input type="hidden" name="sc_id">
             <label class="layui-form-label">学号</label>
             <div class="layui-input-inline">
                 <input  style="background:#F6F6F6"   name="sc_studentid"  autocomplete="off" class="layui-input">
@@ -291,6 +293,7 @@
         </div>
     </form>
 </div>
+<%--添加信息--%>
 <div id="student_info" style="display: none">
     <form class="layui-form" action="${pageContext.request.contextPath}/ScoreServlet?method=addStudentResult" method="post">
         <div style="width: 20px;"></div>

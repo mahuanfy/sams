@@ -42,6 +42,13 @@ public class ScoreService implements IScoreService {
             throw new RuntimeException(e);
         }
     }
+    public void saveById1(ScoreBean scoreBean) {
+        try {
+            scoreDao.saveById1(scoreBean);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 
     public void sc_idDelete(int sc_id) {
         try {

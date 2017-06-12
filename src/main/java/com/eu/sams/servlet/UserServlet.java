@@ -84,7 +84,7 @@ public class UserServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/Admin/index1.jsp");
         }else {
             request.setAttribute("err","用户名或密码错误，请重新登录");
-            response.sendRedirect(request.getContextPath()+"/Admin/index.html");
+            response.sendRedirect(request.getContextPath()+"/Admin/index.jsp");
         }
     }
 protected void logout(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{

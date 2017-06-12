@@ -36,10 +36,12 @@ public class ScoreServlet extends HttpServlet {
             idscore(req, resp);
         }else if(method.equals("saveById")){
             saveById(req, resp);
+        }else if(method.equals("saveById1")){
+            saveById1(req, resp);
         }else if(method.equals("sc_idDelete")){
             sc_idDelete(req, resp);
         }else if(method.equals("addStudentResult")){
-            System.out.println("查询成绩");
+
             addStudentResult(req, resp);
         }
     }
@@ -66,6 +68,34 @@ public class ScoreServlet extends HttpServlet {
         System.out.println("111111"+jsonArray);
         resp.getWriter().print(jsonArray);
     }
+    protected void saveById1(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ScoreBean scoreBean =new ScoreBean();
+        scoreBean.setSc_studentid(req.getParameter("sc_studentid"));
+        scoreBean.setSc_name(req.getParameter("sc_name"));
+        scoreBean.setSc_id(Integer.parseInt(req.getParameter("sc_id")));
+        System.out.println(req.getParameter("sc_studentid"));
+        scoreBean.setSc_class1( Integer.parseInt(req.getParameter("sc_class1")));
+        scoreBean.setSc_class2( Integer.parseInt(req.getParameter("sc_class2")));
+        scoreBean.setSc_class3( Integer.parseInt(req.getParameter("sc_class3")));
+        scoreBean.setSc_class4( Integer.parseInt(req.getParameter("sc_class4")));
+        scoreBean.setSc_class5( Integer.parseInt(req.getParameter("sc_class5")));
+        scoreBean.setSc_class6( Integer.parseInt(req.getParameter("sc_class6")));
+        scoreBean.setSc_class7( Integer.parseInt(req.getParameter("sc_class7")));
+        scoreBean.setSc_class8( Integer.parseInt(req.getParameter("sc_class8")));
+        scoreBean.setSc_class9( Integer.parseInt(req.getParameter("sc_class9")));
+        scoreBean.setSc_class10( Integer.parseInt(req.getParameter("sc_class10")));
+        scoreService.saveById1(scoreBean);
+        resp.sendRedirect(req.getContextPath() + "/Admin/Admin_StudentScore.jsp");
+    }
+
+
+
+
+    protected void sc_idDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int sc_id = Integer.parseInt(req.getParameter("sc_id"));
+        scoreService.sc_idDelete(sc_id);
+    }
+
     protected void saveById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ScoreBean scoreBean =new ScoreBean();
         scoreBean.setSc_studentid(req.getParameter("sc_studentid"));
@@ -83,10 +113,7 @@ public class ScoreServlet extends HttpServlet {
         scoreService.saveById(scoreBean);
         resp.sendRedirect(req.getContextPath() + "/Admin/teacher_score.jsp");
     }
-    protected void sc_idDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int sc_id = Integer.parseInt(req.getParameter("sc_id"));
-        scoreService.sc_idDelete(sc_id);
-    }
+
     protected void addStudentResult(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ScoreBean scoreBean =new ScoreBean();
         scoreBean.setSc_name(req.getParameter("sc_name1"));

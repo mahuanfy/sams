@@ -5,7 +5,7 @@ var navs3 = [{
 	"icon": "fa fa-mortar-board ",
 	"spread": false,
 	"children": [{
-		"title": "信息详情",
+		"title": "学生信息详情",
 		"icon": " fa fa-id-card",
 		"href": "Admin_StudentInfo.jsp"
 	}]
@@ -14,7 +14,7 @@ var navs3 = [{
 	"icon": "fa fa-user",
 	"spread": false,
 	"children": [{
-		"title": "信息详情",
+		"title": "老师信息详情",
 		"icon": "fa fa-address-book-o",
 		"href": "Admin_TeacherInfo.jsp"
 	}]
