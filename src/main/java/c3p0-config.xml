@@ -6,7 +6,7 @@
     <property name="password">root</property>
     <!--<property name="initialPoolSize">20</property>-->
     <!--<property name="maxPoolSize">50</property>-->
-    <property name="maxIdleTime">1000</property>
+    <!--<property name="maxIdleTime">1000</property>-->
     <!--<property name="checkoutTimeout">30000</property>-->
     <!--<property name="maxIdleTimeExcessConnections">10</property>-->
     <!--<property name="maxConnectionAge">60</property>-->

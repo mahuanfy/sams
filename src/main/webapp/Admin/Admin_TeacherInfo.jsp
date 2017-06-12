@@ -166,6 +166,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">代课</label>
 			<div class="layui-input-inline">
+
 				<input  style="background:#F6F6F6"   name="t_tipsay"  autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -190,32 +191,41 @@
 			<input type="hidden" name="t_id">
 			<label class="layui-form-label">工号</label>
 			<div class="layui-input-inline">
-				<input  style="background:#F6F6F6"   name="t_teacherid1"  autocomplete="off" class="layui-input">
+				<input    name="t_teacherid1"  autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">姓名</label>
 			<div class="layui-input-inline">
-				<input  style="background:#F6F6F6"   name="t_username1"  autocomplete="off" class="layui-input">
+				<input     name="t_username1"  autocomplete="off" class="layui-input">
 			</div>
 
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">性别</label>
 			<div class="layui-input-inline">
-				<input  style="background:#F6F6F6"   name="t_sex1"  autocomplete="off" class="layui-input">
+				<input     name="t_sex1"  autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">密码</label>
+			<div class="layui-input-inline">
+				<input   type="text"   name="t_password1"  autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">代课</label>
 			<div class="layui-input-inline">
-				<input  style="background:#F6F6F6"   name="t_tipsay1"  autocomplete="off" class="layui-input">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">密码</label>
-			<div class="layui-input-inline">
-				<input  style="background:#F6F6F6" type="text"   name="t_password1"  autocomplete="off" class="layui-input">
+				<select name="t_tipsay1" lay-filter="aihao">
+
+					<option value="软件工程" selected="">软件工程</option>
+					<option value="计算机原理" >计算机原理</option>
+					<option value="大学英语">大学英语</option>
+					<option value="网站设计">网站设计</option>
+					<option value="工科数学">工科数学</option>
+				</select>
+				<%--<input  style="background:#F6F6F6"   name="t_tipsay1"  autocomplete="off" class="layui-input">--%>
 			</div>
 		</div>
 		<div style="width: 20px; "></div>

@@ -9,7 +9,6 @@ import java.sql.*;
  * Created by 马欢欢 on 2017/6/5.
  */
 public class ConnUtil{
-    @Test
     public static Connection getConnextion()  {
         PreparedStatement pstmt;
         //创建连接池核心工具类
