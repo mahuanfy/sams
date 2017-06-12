@@ -33,18 +33,10 @@ var navs3 = [{
 	"href": "",
 	"spread": false,
 	"children": [{
-		"title": "软件工程课程",
+		"title": "课程管理",
 		"icon": "fa fa-dedent",
-		"href": "weiwancheng.html"
-	}, {
-		"title": "通信工程课程",
-		"icon": "fa fa-dedent",
-		"href": "weiwancheng.html"
-	}, {
-        "title": "电子信息技术课程",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }]
+		"href": "Admin_currise.jsp"
+	}]
 },{
     "title": "关于我们",
     "icon": "fa fa-hand-o-right",
