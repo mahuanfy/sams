@@ -23,7 +23,7 @@ public class EvaluateDao extends BaseDaoutil implements IEvaluateDao {
         return list !=null&&list.size()>0?list :null;
     }
     public void studentMessage(EvaluateBean evaluateBean) {
-        String sql="INSERT INTO evaluate(e_sudent_t,e_teacherid,e_studentid,e_time,e_discern.e_studentname) VALUE(?,?,?,?,?,?);";
+        String sql="INSERT INTO evaluate(e_sudent_t,e_teacherid,e_studentid,e_time,e_discern,e_studentname) VALUE(?,?,?,?,?,?);";
         Object[] eva={evaluateBean.getE_sudent_t(),evaluateBean.getE_teacherid(),
                 evaluateBean.getE_studentid(),evaluateBean.getE_time(),evaluateBean.getE_discern(),evaluateBean.getE_studentname()};
         super.update(sql,eva);

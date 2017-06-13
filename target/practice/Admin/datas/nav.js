@@ -96,15 +96,7 @@ var navs1 = [{
     "href": "",
     "spread": false,
     "children": [{
-        "title": "软件工程课程",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }, {
-        "title": "通信工程课程",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }, {
-        "title": "电子信息技术课程",
+        "title": "课程选择",
         "icon": "fa fa-dedent",
         "href": "weiwancheng.html"
     }]
@@ -145,40 +137,31 @@ var navs2 = [ {
         "href": "teacher_score.jsp"
     }]
 }, {
+    "title": "发布查看消息",
+    "icon": "fa fa-bank",
+    "spread": false,
+    "children": [{
+        "title": "发布任务",
+        "icon": "fa-check-square-o",
+        "href": "teacher_evaluaate.jsp"
+    },
+        {
+            "title": "查看留言",
+            "icon": "fa-check-square-o",
+            "href": "teacher_SeachMessag.jsp"
+        }
+    ]
+},{
     "title": "课程详情",
     "icon": "fa-address-book",
     "href": "",
     "spread": false,
     "children": [{
-        "title": "软件工程课程",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }, {
-        "title": "通信工程课程",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }, {
-        "title": "电子信息技术课程",
+        "title": "查看课程",
         "icon": "fa fa-dedent",
         "href": "weiwancheng.html"
     }]
 },
-    {
-        "title": "发布查看消息",
-        "icon": "fa fa-bank",
-        "spread": false,
-        "children": [{
-            "title": "发布任务",
-            "icon": "fa-check-square-o",
-            "href": "teacher_evaluaate.jsp"
-        },
-            {
-                "title": "查看留言",
-                "icon": "fa-check-square-o",
-                "href": "teacher_SeachMessag.jsp"
-            }
-        ]
-    },
 	{
     "title": "关于我们",
     "icon": "fa fa-hand-o-right",

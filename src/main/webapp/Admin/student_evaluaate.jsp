@@ -40,6 +40,7 @@
 
 <div class="site-demo-button" style="margin-top: 20px;margin-left: 50px;margin-bottom: 20px;">
     <button class="layui-btn site-demo-layedit" data-type="content">提交留言</button>
+    <input type="hidden" name="name" value="<%=studentBean.getS_username()%>">
     <!--<button class="layui-btn site-demo-layedit" data-type="text">获取编辑器纯文本内容</button>-->
     <!--<button class="layui-btn site-demo-layedit" data-type="selection">获取编辑器选中内容</button>-->
 </div>
@@ -103,13 +104,16 @@
                 var e_sudent_t = layedit.getContent(index);
                 var teacherID = $("select[name='teacher']").val();
                 $(function () {
-//                    alert(layedit.getContent(index)); //获取编辑器内容
+
+//                   alert(layedit.getContent(index)); //获取编辑器内容
+//                    alert($("input[name='name']").val());
+                    var e_studentname =$("input[name='name']").val();
                     $.post("${pageContext.request.contextPath}/EvaluateServlet?method=studentMessage",
                         {
                             e_teacherid: teacherID,
                             e_sudent_t: e_sudent_t,
                             e_time:t,
-                            e_studentname:<%=studentBean.getS_username()%>
+                            e_studentname:e_studentname
                         },
                         function (data, status) {
                             layer.msg('留言成功', {icon: 1,time: 1000}, function () {

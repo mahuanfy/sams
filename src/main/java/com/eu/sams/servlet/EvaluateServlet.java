@@ -36,8 +36,10 @@ public class EvaluateServlet extends HttpServlet {
         if(method.equals("findteacherEvaluateStudent")){
             findteacherEvaluateStudent(req,resp);
         }if (method.equals("studentMessage")){
+            System.out.println(121212);
             studentMessage(req,resp);
         }else if (method.equals("find_studentMessage")){
+
             find_studentMessage(req,resp);
         }else if (method.equals("findStudentToTeacherEvaluate")){
             findStudentToTeacherEvaluate(req,resp);
@@ -67,7 +69,6 @@ public class EvaluateServlet extends HttpServlet {
     }
     private void studentMessage(HttpServletRequest request, HttpServletResponse response) {
         EvaluateBean evaluateBean=new EvaluateBean();
-        System.out.println(88888);
         List<StudentBean> studentBeans= (List<StudentBean>) request.getSession().getAttribute("info");
         evaluateBean.setE_studentid(studentBeans.get(0).getS_studentid());
         evaluateBean.setE_sudent_t(request.getParameter("e_sudent_t"));
