@@ -84,7 +84,7 @@
                         },
                         function (data,status ) {
                             layer.msg('发布成功', {icon: 1,time: 500},function(){
-                                    locale.ready();
+                                location.reload();
                             });
                         }
 

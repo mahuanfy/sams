@@ -32,13 +32,9 @@
 <body>
 <%
     List list = (List) session.getAttribute("info");
-
-
     if (list == null) {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
     } else {
-
-
 %>
 <script type="text/javascript">
     //        权限设置
@@ -82,11 +78,12 @@
             <ul class="layui-nav admin-header-item">
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="admin-header-user">
-                        <img src="images/0.jpg"/>
+
                         <%
                             if (session.getAttribute("identity") == "student") {
                                 StudentBean studentBean = (StudentBean) list.get(0);
                         %>
+                        <img src="images/0.jpg"/>
                         <span><%=studentBean.getS_username()%></span>
 
 
@@ -94,12 +91,14 @@
                         } else if (session.getAttribute("identity") == "teacher") {
                             TeacherBean teacherBean = (TeacherBean) list.get(0);
                         %>
+                        <img src="images/ba.jpg"/>
                         <span><%=teacherBean.getT_username()%></span>
 
                         <%
                         } else if (session.getAttribute("identity") == "admin") {
                             AdminBean adminBean=(AdminBean) list.get(0);
                         %>
+                        <img src="images/ww.jpg"/>
                         <span><%=adminBean.getA_username() %></span>
                         <%
                             }

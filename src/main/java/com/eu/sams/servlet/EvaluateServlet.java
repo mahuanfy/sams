@@ -72,6 +72,7 @@ public class EvaluateServlet extends HttpServlet {
         evaluateBean.setE_studentid(studentBeans.get(0).getS_studentid());
         evaluateBean.setE_sudent_t(request.getParameter("e_sudent_t"));
         evaluateBean.setE_time(request.getParameter("e_time"));
+        evaluateBean.setE_studentname(request.getParameter("e_studentname"));
         evaluateBean.setE_discern("2");
         evaluateBean.setE_teacherid(request.getParameter("e_teacherid"));
         evaluateService.studentMessage(evaluateBean);

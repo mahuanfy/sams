@@ -11,8 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/global.css" media="all">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
     <script type="text/javascript" src="js/jquery.js"></script>
-    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <script src="plugins/layui/layui.js" charset="utf-8"></script>
 </head>
 <%
     List  list= (List) session.getAttribute("info");
@@ -25,25 +27,47 @@
 </fieldset>
 
 <textarea class="layui-textarea" id="LAY_demo1" style="display: none">
-
 </textarea>
+
+    <div class="layui-form-item">
+        <div class="layui-input-inline" style="margin-left: 50px;">
+
+            <select id="select_Teacher" name="teacher" lay-filter="aihao" style="width: 100px;height: 40px">
+
+            </select>
+        </div>
+
 
 <div class="site-demo-button" style="margin-top: 20px;margin-left: 50px;margin-bottom: 20px;">
     <button class="layui-btn site-demo-layedit" data-type="content">提交留言</button>
     <!--<button class="layui-btn site-demo-layedit" data-type="text">获取编辑器纯文本内容</button>-->
     <!--<button class="layui-btn site-demo-layedit" data-type="selection">获取编辑器选中内容</button>-->
 </div>
-
-
+    </div>
 <fieldset class="layui-elem-field site-demo-button">
     <legend>我的历史留言</legend>
     <div id="aaa">
     </div>
     <p></p>
 </fieldset>
+<script type="text/javascript">
+//    <option value='计算机原理' >计算机原理</option>
+    $(function () {
+        $.post("${pageContext.request.contextPath}/AdminStuCurriseServlet?method=Student_findTeacher",
+            function (data,status) {
+                $("#select_Teacher").html("");
+                for(var i=0;i<data.length;i++){
 
 
-<script src="plugins/layui/layui.js" charset="utf-8"></script>
+                    $("#select_Teacher").append("<option value='"+data[i]['t_teacherid']+"'>"+data[i]['t_username']+"</option>");
+                }
+            },"json"
+        );
+    });
+
+</script>
+
+
 <script type="text/javascript">
     $(document).ready(function () {
 
@@ -77,16 +101,17 @@
 
                 //留言板内容写入数据库
                 var e_sudent_t = layedit.getContent(index);
+                var teacherID = $("select[name='teacher']").val();
                 $(function () {
 //                    alert(layedit.getContent(index)); //获取编辑器内容
                     $.post("${pageContext.request.contextPath}/EvaluateServlet?method=studentMessage",
                         {
-                            e_teacherid: "15610409153608",
+                            e_teacherid: teacherID,
                             e_sudent_t: e_sudent_t,
-                            e_time:t
+                            e_time:t,
+                            e_studentname:<%=studentBean.getS_username()%>
                         },
                         function (data, status) {
-//                        alert(121212)
                             layer.msg('留言成功', {icon: 1,time: 1000}, function () {
                                 location.reload();
                             });

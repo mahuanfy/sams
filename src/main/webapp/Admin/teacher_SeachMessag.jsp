@@ -34,9 +34,11 @@
         $.post(
             "${pageContext.request.contextPath}/EvaluateServlet?method=findStudentToTeacherEvaluate",
             function (data, status) {
+                var name =null;
                 $("#teacher_Evaluate").html("");
                 for(var i =0;i<data.length;i++) {
-                    $("#teacher_Evaluate").append("<div class='layui-elem-quote'><b>编号："+(i+1)+"</b><br> 学号：" + data[i]['e_studentid'] + "<br><b>假装有姓名: </b>" + data[i]['e_sudent_t'] + " <div>" + data[i]['e_time'] + " </div></div>");
+
+                    $("#teacher_Evaluate").append("<div class='layui-elem-quote'><b>编号："+(i+1)+"</b><br><b> 学号：" + data[i]['e_studentid'] + "</b><br><b >" + data[i]['e_studentname'] + ":</b>" + data[i]['e_sudent_t'] + " <div>" + data[i]['e_time'] + " </div></div>");
                 }
             },
             "json"

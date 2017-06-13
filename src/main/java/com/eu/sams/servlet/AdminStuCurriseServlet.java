@@ -1,6 +1,8 @@
 package com.eu.sams.servlet;
 
 import com.eu.sams.entity.CurriseBean;
+import com.eu.sams.entity.StudentBean;
+import com.eu.sams.entity.TeacherBean;
 import com.eu.sams.service.IAdminStuCurriseService;
 import com.eu.sams.service.impl.AdminStuCurriseService;
 import net.sf.json.JSONArray;
@@ -28,8 +30,29 @@ public class AdminStuCurriseServlet extends HttpServlet {
         String method = req.getParameter("method");
         if(method.equals("Admin_findcurrise")){
             Admin_findcurrise(req,resp);
+        }else if(method.equals("Student_findTeacher")){
+            Student_findTeacher(req,resp);
+        }else if(method.equals("StudentIdFindName")){
+            StudentIdFindName(req,resp);
         }
     }
+
+    private void StudentIdFindName(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println(99999);
+        String s_studentid =req.getParameter("s_studentid");
+        List<StudentBean> studentBeans =adminCurriseService.StudentIdFindName(s_studentid);
+        JSONArray jsonArray =JSONArray.fromObject(studentBeans);
+        System.out.println(jsonArray);
+        resp.getWriter().print(jsonArray);
+    }
+
+    private void Student_findTeacher(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<TeacherBean> teacherBeans =adminCurriseService.Student_findTeacher();
+        JSONArray jsonArray = JSONArray.fromObject(teacherBeans);
+        System.out.println(jsonArray);
+        resp.getWriter().print(jsonArray);
+    }
+
     protected void Admin_findcurrise(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<CurriseBean> curriseBeans = adminCurriseService.Admin_TeacherFindCourse();
         JSONArray jsonArray = JSONArray.fromObject(curriseBeans);

@@ -133,7 +133,7 @@ var navs2 = [ {
     "children": [{
         "title": "信息详情",
         "icon": "fa fa-address-book-o",
-        "href": "weiwancheng.html"
+        "href": "Teacher_info.jsp"
     }]
 }, {
     "title": "学生成绩",

@@ -49,7 +49,6 @@ public class AdminServlet extends HttpServlet {
         }else if (method.equals("findStudentToId")){
             findStudentToId(req,resp);
         }
-
     }
     protected void findTeacherInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<TeacherBean> teacherBeans = adminService.findTeacherInfo();

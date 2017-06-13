@@ -25,12 +25,12 @@
 </head>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.post("${pageContext.request.contextPath}/StudentServlet?method=studentInfo",
+        $.post("${pageContext.request.contextPath}/TeacherServlet?method=teacherInfo",
             function (data, status) {
-                $("input[name='s_studentid']").val(data[0]['s_studentid']);
-                $("input[name='s_username']").val(data[0]['s_username']);
-                $("input[name='s_sex']").val(data[0]['s_sex']);
-                $("input[name='s_class']").val(data[0]['s_class']);
+                $("input[name='t_teacherid']").val(data[0]['t_teacherid']);
+                $("input[name='t_username']").val(data[0]['t_username']);
+                $("input[name='t_sex']").val(data[0]['t_sex']);
+                $("input[name='t_tipsay']").val(data[0]['t_tipsay']);
             },
             "json"
         );
@@ -45,7 +45,7 @@
 
 
     <div class="site-demo-upload">
-        <img id="LAY_demo_upload" src="./images/0.jpg">
+        <img id="LAY_demo_upload" src="./images/ba.jpg">
         <%--<div class="site-demo-upbar">--%>
         <%--<input type="file" name="file" class="layui-upload-file" id="test">--%>
         <%--</div>--%>
@@ -60,28 +60,28 @@
         <div class="layui-form-item">
             <label class="layui-form-label">学号:</label>
             <div class="layui-input-inline">
-                <input readonly="readonly" type="text" name="s_studentid" lay-verify="required"
+                <input readonly="readonly" type="text" name="t_teacherid" lay-verify="required"
                         autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名：</label>
             <div class="layui-input-inline">
-                <input readonly="readonly" type="text" name="s_username" lay-verify="required"
+                <input readonly="readonly" type="text" name="t_username" lay-verify="required"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">性别：</label>
             <div class="layui-input-inline">
-                <input type="text" name="s_sex" lay-verify="required" placeholder="请输入" autocomplete="off"
+                <input type="text" name="t_sex" lay-verify="required" placeholder="请输入" autocomplete="off"
                        class="layui-input" readonly="readonly">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">班级：</label>
             <div class="layui-input-inline">
-                <input type="text" name="s_class" lay-verify="required" placeholder="请输入" autocomplete="off"
+                <input type="text" name="t_tipsay" lay-verify="required" placeholder="请输入" autocomplete="off"
                        class="layui-input" readonly="readonly">
             </div>
         </div>
