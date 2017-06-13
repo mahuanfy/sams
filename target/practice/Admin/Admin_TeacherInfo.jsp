@@ -217,13 +217,13 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">代课</label>
 			<div class="layui-input-inline">
-				<select name="t_tipsay1" lay-filter="aihao">
+				<select id="select_option" name="t_tipsay1" lay-filter="aihao">
 
-					<option value="软件工程" selected="">软件工程</option>
-					<option value="计算机原理" >计算机原理</option>
-					<option value="大学英语">大学英语</option>
-					<option value="网站设计">网站设计</option>
-					<option value="工科数学">工科数学</option>
+					<%--<option value="软件工程" selected="">软件工程</option>--%>
+					<%--<option value="计算机原理" >计算机原理</option>--%>
+					<%--<option value="大学英语">大学英语</option>--%>
+					<%--<option value="网站设计">网站设计</option>--%>
+					<%--<option value="工科数学">工科数学</option>--%>
 				</select>
 				<%--<input  style="background:#F6F6F6"   name="t_tipsay1"  autocomplete="off" class="layui-input">--%>
 			</div>
@@ -235,6 +235,20 @@
 		</div>
 	</form>
 </div>
+<script type="text/javascript">
+	$(function () {
+		$.post("${pageContext.request.contextPath}/AdminStuCurriseServlet?method=Admin_findcurrise",
+			function (data,status) {
+
+                $("#select_option").html("");
+				for (var i =0;i<data.length;i++){
+                    $("#select_option").append("<option value='"+data[i]['c_name']+"' >"+data[i]['c_name']+"</option>");
+				}
+            },
+			"json"
+		);
+    });
+</script>
 <script>
     layui.use(['form', 'layedit', 'laydate'], function() {
         var form = layui.form(),
