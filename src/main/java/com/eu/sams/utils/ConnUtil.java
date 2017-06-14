@@ -31,43 +31,24 @@ public class ConnUtil{
 
 //关闭连接1
     public static void close(Statement stmt, Connection conn){
-        if(null!=stmt){
             try {
                 stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }if(null!=conn){
-            try {
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
         System.out.print("关闭成功");
     }
 
     //关闭连接2
     public static void close(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-        if (null!=rs){
             try {
                 rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }if (null!=pstmt){
-            try {
                 pstmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }if (null!=conn){
-            try {
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
         System.out.print("关闭成功");
     }
 }
