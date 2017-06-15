@@ -44,11 +44,11 @@ var navs3 = [{
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "weiwancheng.html"
+        "href": "asd.html"
     }, {
             "title": "联系我们",
             "icon": " fa fa-envelope",
-            "href": "weiwancheng.html"
+            "href": "Contact_us.html"
 	}]
 }
 ];
@@ -89,33 +89,35 @@ var navs1 = [{
                 "href": "student_SeachMessag.jsp"
             }
 		]
-    },
-	{
-    "title": "课程详情",
-    "icon": "fa-address-book",
-    "href": "",
-    "spread": false,
-    "children": [{
-        "title": "课程选择",
-        "icon": "fa fa-dedent",
-        "href": "weiwancheng.html"
-    }]
-},{
+    },{
     "title": "关于我们",
     "icon": "fa fa-hand-o-right",
     "spread": false,
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "weiwancheng.html"
+        "href": "asd.html"
     }, {
         "title": "联系我们",
         "icon": " fa fa-envelope",
-        "href": "weiwancheng.html"
+        "href": "Contact_us.html"
     }]
 }
 ];
-
+/*
+* ,
+ {
+ "title": "课程详情",
+ "icon": "fa-address-book",
+ "href": "",
+ "spread": false,
+ "children": [{
+ "title": "课程选择",
+ "icon": "fa fa-dedent",
+ "href": "weiwancheng.html"
+ }]
+ }
+* */
 
 //老师
 var navs2 = [ {
@@ -151,7 +153,8 @@ var navs2 = [ {
             "href": "teacher_SeachMessag.jsp"
         }
     ]
-},{
+},
+    /*{
     "title": "课程详情",
     "icon": "fa-address-book",
     "href": "",
@@ -161,7 +164,7 @@ var navs2 = [ {
         "icon": "fa fa-dedent",
         "href": "weiwancheng.html"
     }]
-},
+},*/
 	{
     "title": "关于我们",
     "icon": "fa fa-hand-o-right",
@@ -169,11 +172,11 @@ var navs2 = [ {
     "children": [{
         "title": "我们的简介",
         "icon": "&#xe641;",
-        "href": "weiwancheng.html"
+        "href": "asd.html"
     }, {
         "title": "联系我们",
         "icon": " fa fa-envelope",
-        "href": "weiwancheng.html"
+        "href": "Contact_us.html"
     }]
 }
 ];

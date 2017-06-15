@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class EvaluateDao extends BaseDaoutil implements IEvaluateDao {
     public void teacherEvaluateStudent(EvaluateBean evaluateBean) {
-        String sql = "  INSERT INTO evaluate (e_teacherid,e_message_t,e_discern,e_time) VALUES (?,?,?,?); ";
-        Object[] num ={evaluateBean.getE_teacherid(),evaluateBean.getE_message_t(),evaluateBean.getE_discern(),evaluateBean.getE_time()};
+        String sql = "  INSERT INTO evaluate (e_teacherid,e_message_t,e_discern,e_time,e_teachername) VALUES (?,?,?,?,?); ";
+        Object[] num ={evaluateBean.getE_teacherid(),evaluateBean.getE_message_t(),evaluateBean.getE_discern(),evaluateBean.getE_time(),evaluateBean.getE_teachername()};
         super.update(sql,num);
     }
 

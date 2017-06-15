@@ -52,6 +52,7 @@ public class EvaluateServlet extends HttpServlet {
         EvaluateBean evaluateBean = new EvaluateBean();
         List<TeacherBean> list = (List<TeacherBean>) req.getSession().getAttribute("info");
         evaluateBean.setE_teacherid( list.get(0).getT_teacherid());
+        evaluateBean.setE_teachername( list.get(0).getT_username());
         evaluateBean.setE_message_t( req.getParameter("e_message_t"));
         evaluateBean.setE_time(req.getParameter("e_time"));
         evaluateBean.setE_discern("1");

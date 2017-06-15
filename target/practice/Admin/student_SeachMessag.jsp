@@ -27,7 +27,7 @@
             function (data,status) {
                 $("#zz").html("");
                 for (var i=0;i<data.length;i++){
-                    $("#zz").append("<div class='layui-elem-quote'>工号："+ data[i]['e_teacherid']+"<br> <b>马老师<%--<%=studentBean.getS_username()%>--%>: </b>"+data[i]['e_message_t']+" <div>"+data[i]['e_time']+"</div></div>");
+                    $("#zz").append("<div class='layui-elem-quote'>工号："+ data[i]['e_teacherid']+"<br> <b>"+ data[i]['e_teachername']+"<%--<%=studentBean.getS_username()%>--%>: </b>"+data[i]['e_message_t']+" <div>"+data[i]['e_time']+"</div></div>");
                 }
             },
             "json"

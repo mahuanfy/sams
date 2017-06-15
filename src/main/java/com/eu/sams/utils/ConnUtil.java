@@ -9,24 +9,26 @@ import java.sql.*;
  * Created by 马欢欢 on 2017/6/5.
  */
 public class ConnUtil{
-    public static Connection getConnextion()  {
-        PreparedStatement pstmt;
-        //创建连接池核心工具类
-        //自动加载根目录下面的c3p0配置文件【c3p0-config.xml】
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        //从连接池对象中获取连接对象
+
+    public static Connection getConnextion() {
         Connection conn=null;
         try {
-            conn = dataSource.getConnection();
+            Class.forName("com.mysql.jdbc.Driver");//1.加载数据库驱动
+
+            String url="jdbc:mysql://localhost:3306/sams?useUnicode=true&characterEncoding=utf-8";//2.指定连接数据库的地址名称
+            String user="root";
+            String passWord = "root";//指定用户名和密码
+
+            conn= (Connection) DriverManager.getConnection(url,user,passWord);//3获取数据库连接
+
             if(null!=conn){//判断是否连接成功！
                 System.out.println("恭喜！数据库连接成功！");
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println("很遗憾！数据库连接失败！");
             e.printStackTrace();
         }
         return conn;
-
     }
 
 //关闭连接1

@@ -14,6 +14,17 @@ public class EvaluateBean {
     private  String e_time;
     private String  e_studentname;
 
+    public String getE_teachername() {
+        return e_teachername;
+    }
+
+    public void setE_teachername(String e_teachername) {
+        this.e_teachername = e_teachername;
+    }
+
+    private String  e_teachername;
+
+
     public String getE_studentname() {
         return e_studentname;
     }
