@@ -33,7 +33,6 @@
 
 > **学生操作界面：**
 
-<img src="./README/imgs1.png"/>
 <img src="./README/imgs2.png"/>
 <img src="./README/imgs3.png"/>
 <img src="./README/imgs4.png"/>
@@ -55,11 +54,10 @@
 
 > **管理员登陆界面**  
 
-<img src="./README/imgt1.png"/>
+<img src="./README/imgaad1.png"/>
 
 > **管理员操作界面：**
 
-<img src="./README/imgaad1.png"/>
 <img src="./README/imgad2.png"/>
 <img src="./README/imgad3.png"/>
 <img src="./README/imgad4.png"/>
