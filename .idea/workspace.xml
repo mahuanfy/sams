@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48764698-e0e2-4503-8da6-1835bdadf9a1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img21.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img22.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img31.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img32.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img33.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README/img7.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README/img3.png" afterPath="$PROJECT_DIR$/README/img3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,7 +70,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -91,6 +79,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sams.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sams.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -335,20 +333,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="README" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -368,11 +352,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IDEA\practice" />
       <recent name="E:\IDEA\practice\README" />
       <recent name="E:\IDEA\practice\src\main\webapp\Admin" />
       <recent name="E:\IDEA\practice\src\main\webapp\Admin\images" />
       <recent name="E:\IDEA\practice\target\classes" />
-      <recent name="E:\IDEA\practice\src\main\webapp\Admin\js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.eu.sams.service" />
@@ -942,7 +926,7 @@
       <workItem from="1497423467884" duration="6691000" />
       <workItem from="1497492140623" duration="13624000" />
       <workItem from="1497575836336" duration="2185000" />
-      <workItem from="1497591309473" duration="4845000" />
+      <workItem from="1497591309473" duration="4991000" />
     </task>
     <servers />
   </component>
@@ -979,7 +963,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240894000" />
+    <option name="totallyTimeSpent" value="241040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1079,13 +1063,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eu/sams/dao/ITeacherDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eu/sams/dao/impl/StudentDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1475,6 +1452,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sams.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
