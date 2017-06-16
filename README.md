@@ -21,11 +21,11 @@
 > **系统流程图：**  
 
 <img src="./README/imga2.png"/>
-
+<img src="./README/imga3.png"/>
 > **系统功能层次:**  
 
 <img src="./README/imga1.jpg"/>
-<img src="./README/imga3.png"/>
+
 
 > **学生登陆界面**  
 
